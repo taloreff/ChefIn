@@ -1,0 +1,36 @@
+.chef-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        list-style-type: none;
+
+        &.chef-card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+
+            img {
+                max-width: 100%;
+                border-radius: 8px;
+                height: 250px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .chef-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
