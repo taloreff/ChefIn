@@ -19,7 +19,7 @@
         background: white;
         padding: 40px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 350px;
         text-align: center;
 
@@ -39,7 +39,14 @@
             }
         }
 
+        .error-message {
+            color: #f1592a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
         .login-form {
+
             input[type='text'],
             input[type='password'] {
                 width: 100%;
@@ -81,7 +88,7 @@
                 cursor: pointer;
                 transition: background-color 0.3s, color 0.3s;
 
-                &:hover{
+                &:hover {
                     background-color: white;
                     color: #333;
                 }
@@ -101,7 +108,7 @@
             cursor: pointer;
             transition: border-color 0.3s;
 
-            &:hover{
+            &:hover {
                 border-color: #333;
             }
 

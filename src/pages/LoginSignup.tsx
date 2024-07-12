@@ -2,46 +2,43 @@ import React, { useState } from 'react';
 import GoogleIcon from '../assets/svgs/GoogleIcon';
 import Logo from '../assets/imgs/Logo.png';
 import { authService } from '../services/auth.service';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginSignup() {
     const [loginSelected, setLoginSelected] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const navigate = useNavigate();
+
 
     function toggleForm() {
         setLoginSelected(prev => !prev);
+        setErrorMessage(null);
     }
 
     async function handleLogin(e: React.FormEvent) {
         e.preventDefault();
+        setErrorMessage(null);
         try {
             const tokens = await authService.login(email, password);
             console.log('Login successful:', tokens);
-            // Handle successful login, e.g., save tokens to local storage
+            navigate('/')
         } catch (err: unknown) {
-            if (err instanceof Error) {
-                console.error('Login failed:', err.message);
-            } else {
-                console.error('Login failed:', err);
-            }
-            // Handle login error, e.g., show an error message
+            setErrorMessage('An unexpected error occurred during login.');
         }
     }
 
     async function handleRegister(e: React.FormEvent) {
         e.preventDefault();
+        setErrorMessage(null);
         try {
             const user = await authService.register(email, password, confirmPassword);
             console.log('Registration successful:', user);
-            // Handle successful registration, e.g., navigate to login or home page
+            navigate('/')
         } catch (err: unknown) {
-            if (err instanceof Error) {
-                console.error('Registration failed:', err.message);
-            } else {
-                console.error('Registration failed:', err);
-            }
-            // Handle registration error, e.g., show an error message
+            setErrorMessage('An unexpected error occurred during registration.');
         }
     }
 
@@ -56,6 +53,7 @@ export function LoginSignup() {
                     <p className='subtitle'>
                         <a className='signin' onClick={toggleForm}>Create a free account</a> or log in to get started
                     </p>
+                    {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     <form className='login-form' onSubmit={handleLogin}>
                         <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -77,6 +75,7 @@ export function LoginSignup() {
                 <div className='login-container'>
                     <h1>Register</h1>
                     <p className='subtitle'>Already have an account? <a className='signin' onClick={toggleForm}>Log in</a></p>
+                    {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     <form className='login-form' onSubmit={handleRegister}>
                         <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
