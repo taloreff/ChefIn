@@ -1,213 +1,162 @@
 [
     {
-        "id": 1,
-        "name": "Chef 1",
+        "username": "John Smith",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
+        "title": "Delicious Italian Cuisine",
+        "description": "Experience authentic Italian dishes crafted with love.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 2,
-        "name": "Chef 2",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/private-chef-dinner-parties_gxeerv.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
+        "username": "Julia Jones",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/private-chef-dinner-parties_gxeerv.jpg",
+        "title": "Exquisite French Dishes",
+        "description": "Indulge in exquisite French cuisine with a modern twist.",
+        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
         "labels": ["French"]
     },
     {
-        "id": 3,
-        "name": "Chef 3",
+        "username": "Michael Brown",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/Personal-Chef-Vs.-Private-Chef-Vs.-Catering-Services_kcguon.jpg",
+        "title": "Fusion Delights",
+        "description": "A perfect blend of Italian and French flavors.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/Personal-Chef-Vs.-Private-Chef-Vs.-Catering-Services_kcguon.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 4,
-        "name": "Chef 4",
+        "username": "Emily Davis",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/0_0_cb3l6e.png",
+        "title": "Authentic Italian Pasta",
+        "description": "Handmade pasta with traditional sauces.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/0_0_cb3l6e.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 5,
-        "name": "Chef 5",
+        "username": "James Wilson",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/https_3A_2F_2Fcdn.evbuc.com_2Fimages_2F785460179_2F1955634339413_2F1_2Foriginal_ohaw4z.jpg",
+        "title": "Classic French Desserts",
+        "description": "Delicious French pastries and desserts.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/https_3A_2F_2Fcdn.evbuc.com_2Fimages_2F785460179_2F1955634339413_2F1_2Foriginal_ohaw4z.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["French"]
     },
     {
-        "id": 6,
-        "name": "Chef 6",
+        "username": "Sarah Martinez",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/11062b_c31b5c631e224830a1ff3246b73c3e11_mv2_enumkh.jpg",
+        "title": "Italian-French Fusion",
+        "description": "Unique fusion of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/11062b_c31b5c631e224830a1ff3246b73c3e11_mv2_enumkh.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 7,
-        "name": "Chef 7",
+        "username": "David Garcia",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/chefs_ax3jku.png",
+        "title": "Rustic Italian Dishes",
+        "description": "Rustic and hearty Italian meals.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/chefs_ax3jku.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 8,
-        "name": "Chef 8",
+        "username": "Laura Anderson",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/50144b33-faee-4dd0-af84-fe76990f3491_yhcodm.png",
+        "title": "Gourmet French Cuisine",
+        "description": "Elevate your dining experience with gourmet French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/50144b33-faee-4dd0-af84-fe76990f3491_yhcodm.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["French"]
     },
     {
-        "id": 9,
-        "name": "Chef 9",
+        "username": "Christopher Lee",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/85-DSC03401_1666592332_e7mzoo.jpg",
+        "title": "Culinary Journey",
+        "description": "Embark on a culinary journey with Italian and French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/85-DSC03401_1666592332_e7mzoo.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 10,
-        "name": "Chef 10",
+        "username": "Amanda Walker",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/IMG_3577_too70k.jpg",
+        "title": "Traditional Italian Pizza",
+        "description": "Enjoy traditional Italian pizza with fresh ingredients.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/IMG_3577_too70k.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 11,
-        "name": "Chef 11",
+        "username": "Joshua Hall",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/Screen_Shot_2022-01-02_at_7.02.32_PM_l8fesi.png",
+        "title": "French Fine Dining",
+        "description": "Experience fine dining with classic French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/Screen_Shot_2022-01-02_at_7.02.32_PM_l8fesi.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["French"]
     },
     {
-        "id": 12,
-        "name": "Chef 12",
+        "username": "Megan Young",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/rs_h_1000_cg_true_ihmofx.jpg",
+        "title": "Gastronomic Delights",
+        "description": "A gastronomic delight of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/rs_h_1000_cg_true_ihmofx.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 13,
-        "name": "Chef 13",
+        "username": "Andrew Scott",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/samone-scallop-private-chef_kmvm7k.jpg",
+        "title": "Italian Seafood Specials",
+        "description": "Fresh seafood with Italian flavors.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/samone-scallop-private-chef_kmvm7k.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 14,
-        "name": "Chef 14",
+        "username": "Rachel Green",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/1D8F5A1F-5343-423D-A5E6-1B66C7337B71_heic_kwsfm7.png",
+        "title": "French Bistro Experience",
+        "description": "Cozy and charming French bistro meals.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/1D8F5A1F-5343-423D-A5E6-1B66C7337B71_heic_kwsfm7.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["French"]
     },
     {
-        "id": 15,
-        "name": "Chef 15",
+        "username": "Matthew Turner",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pcd1118a-e1576116152495-qawlbn5tw38gmrzix26niedttfaklvc7t5dnsqvqzs_dsihng.png",
+        "title": "Gourmet Fusion",
+        "description": "Innovative fusion of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pcd1118a-e1576116152495-qawlbn5tw38gmrzix26niedttfaklvc7t5dnsqvqzs_dsihng.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 16,
-        "name": "Chef 16",
+        "username": "Jessica White",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/mayaris-voyage-private-chef-small-events-services_gsunhp.jpg",
+        "title": "Homestyle Italian Cooking",
+        "description": "Comforting homestyle Italian dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/mayaris-voyage-private-chef-small-events-services_gsunhp.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 17,
-        "name": "Chef 17",
+        "username": "Daniel Harris",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pexels-rdne-stock-project-7648311-1024x683_uvvt7p.jpg",
+        "title": "French Gourmet Experience",
+        "description": "A true French gourmet experience.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pexels-rdne-stock-project-7648311-1024x683_uvvt7p.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["French"]
     },
     {
-        "id": 18,
-        "name": "Chef 18",
+        "username": "Ashley Martinez",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/chef-will-sanders-ten-o-six-beach-road-bistro-pers_teghjn.jpg",
+        "title": "Italian-French Cuisine",
+        "description": "Delicious blend of Italian and French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/chef-will-sanders-ten-o-six-beach-road-bistro-pers_teghjn.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian", "French"]
     },
     {
-        "id": 19,
-        "name": "Chef 19",
+        "username": "Joseph Clark",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/guest-34_uj0xdb.jpg",
+        "title": "Italian Comfort Food",
+        "description": "Hearty Italian comfort food.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/guest-34_uj0xdb.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
         "labels": ["Italian"]
     },
     {
-        "id": 20,
-        "name": "Chef 20",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/Chef_Walt_and_private_group_1600x_xc4xrq.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
+        "username": "Nicole Lewis",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/Chef_Walt_and_private_group_1600x_xc4xrq.jpg",
+        "title": "French Culinary Arts",
+        "description": "Masterpieces of French culinary arts.",
+                "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
         "labels": ["French"]
-    },
-    {
-        "id": 21,
-        "name": "Chef 21",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018581/5abecf9c-6e51-43aa-a615-855bba03c335_om3bql.png",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian", "French"]
-    },
-    {
-        "id": 22,
-        "name": "Chef 22",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018581/private-chef-services_ukpmhm.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian"]
-    },
-    {
-        "id": 23,
-        "name": "Chef 23",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018581/Image-from-iOS-56-768x1024_letrvv.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["French"]
-    },
-    {
-        "id": 24,
-        "name": "Chef 24",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018580/1552352626099_uo0dyc.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian", "French"]
-    },
-    {
-        "id": 25,
-        "name": "Chef 25",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018580/Why-Should-You-HIre-a-Private-Chef_y4indp.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian"]
-    },
-    {
-        "id": 26,
-        "name": "Chef 26",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018580/79-aakf58_v5r7tp.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["French"]
-    },
-    {
-        "id": 27,
-        "name": "Chef 27",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018580/21186de396a344fb86aebdfce6b78d0f-5-1_yzvotv.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian", "French"]
-    },
-    {
-        "id": 28,
-        "name": "Chef 28",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018579/PrivateChef-1-1024x681_hfctty.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian"]
-    },
-    {
-        "id": 29,
-        "name": "Chef 29",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018579/Dinner-Party_uaw1pj.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["French"]
-    },
-    {
-        "id": 30,
-        "name": "Chef 30",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018579/Perfocal_10-07-21_9UQD7NNQ_62.jpeg_standard_hihe49.jpg",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec.",
-        "labels": ["Italian", "French"]
     }
 ]
- 

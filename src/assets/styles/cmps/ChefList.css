@@ -19,15 +19,55 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
 
-            img {
-                max-width: 100%;
-                border-radius: 8px;
-                height: 250px;
-                object-fit: cover;
+            .chef-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 16px;
+
+                .header-info {
+                    display: flex;
+                    align-items: center;
+                    width: 40%;
+
+                    .profile-pic {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        margin-right: 16px;
+                    }
+
+
+                    h4 {
+                        margin: 0;
+                        font-size: 14px;
+                    }
+                }
+
+                h2 {
+                    margin: 0;
+                    font-size: 18px;
+                    color: #777;
+                    width: 45%;
+                }
             }
+        }
+
+        .chef-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .chef-desc {
+            font-size: 14px;
+            color: #555;
         }
     }
 }
+
 
 @media (min-width: 1200px) {
     .chef-list {

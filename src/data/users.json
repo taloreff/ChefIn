@@ -1,0 +1,122 @@
+[
+    {
+        "email": "john.smith@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "John Smith",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg"
+    },
+    {
+        "email": "julia.jones@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Julia Jones",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/private-chef-dinner-parties_gxeerv.jpg"
+    },
+    {
+        "email": "michael.brown@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Michael Brown",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/Personal-Chef-Vs.-Private-Chef-Vs.-Catering-Services_kcguon.jpg"
+    },
+    {
+        "email": "emily.davis@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Emily Davis",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/0_0_cb3l6e.png"
+    },
+    {
+        "email": "james.wilson@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "James Wilson",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/https_3A_2F_2Fcdn.evbuc.com_2Fimages_2F785460179_2F1955634339413_2F1_2Foriginal_ohaw4z.jpg"
+    },
+    {
+        "email": "sarah.martinez@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Sarah Martinez",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/11062b_c31b5c631e224830a1ff3246b73c3e11_mv2_enumkh.jpg"
+    },
+    {
+        "email": "david.garcia@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "David Garcia",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/chefs_ax3jku.png"
+    },
+    {
+        "email": "laura.anderson@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Laura Anderson",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/50144b33-faee-4dd0-af84-fe76990f3491_yhcodm.png"
+    },
+    {
+        "email": "christopher.lee@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Christopher Lee",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/85-DSC03401_1666592332_e7mzoo.jpg"
+    },
+    {
+        "email": "amanda.walker@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Amanda Walker",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/IMG_3577_too70k.jpg"
+    },
+    {
+        "email": "joshua.hall@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Joshua Hall",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/Screen_Shot_2022-01-02_at_7.02.32_PM_l8fesi.png"
+    },
+    {
+        "email": "megan.young@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Megan Young",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/rs_h_1000_cg_true_ihmofx.jpg"
+    },
+    {
+        "email": "andrew.scott@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Andrew Scott",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/samone-scallop-private-chef_kmvm7k.jpg"
+    },
+    {
+        "email": "rachel.green@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Rachel Green",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/1D8F5A1F-5343-423D-A5E6-1B66C7337B71_heic_kwsfm7.png"
+    },
+    {
+        "email": "matthew.turner@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Matthew Turner",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pcd1118a-e1576116152495-qawlbn5tw38gmrzix26niedttfaklvc7t5dnsqvqzs_dsihng.png"
+    },
+    {
+        "email": "jessica.white@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Jessica White",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/mayaris-voyage-private-chef-small-events-services_gsunhp.jpg"
+    },
+    {
+        "email": "daniel.harris@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Daniel Harris",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pexels-rdne-stock-project-7648311-1024x683_uvvt7p.jpg"
+    },
+    {
+        "email": "ashley.martinez@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Ashley Martinez",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/chef-will-sanders-ten-o-six-beach-road-bistro-pers_teghjn.jpg"
+    },
+    {
+        "email": "joseph.clark@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Joseph Clark",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/guest-34_uj0xdb.jpg"
+    },
+    {
+        "email": "nicole.lewis@example.com",
+        "password": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8tsNwlVoaEWf8./6/RlPVKH8iJ/Npa",  
+        "username": "Nicole Lewis",
+        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/Chef_Walt_and_private_group_1600x_xc4xrq.jpg"
+    }
+]

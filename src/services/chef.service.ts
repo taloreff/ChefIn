@@ -1,4 +1,6 @@
-import { httpService } from "./http.service";
+// src/services/chef.service.ts
+import { httpService } from './http.service';
+import { Chef, FilterBy } from '../types/Chef';
 
 export const chefService = {
   query,
@@ -9,30 +11,14 @@ export const chefService = {
   getFilterFromParams,
 };
 
-const BASE_URL = "chef/";
+const BASE_URL = 'post/';
 
-export interface FilterBy {
-  username?: string;
-  title?: string;
-  description?: string;
-  labels?: string[];
-}
-
-export interface Chef {
-  _id?: string;
-  username: string;
-  title: string;
-  description: string;
-  labels: string[];
-}
-
-async function query(filterBy: FilterBy): Promise<Chef[]> {
+async function query(filterBy: FilterBy = {}): Promise<Chef[]> {
   return httpService.get(BASE_URL, filterBy);
 }
 
 async function getById(chefId: string): Promise<Chef> {
-  const chef = await httpService.get(`${BASE_URL}${chefId}`);
-  return chef;
+  return httpService.get(`${BASE_URL}${chefId}`);
 }
 
 async function remove(chefId: string): Promise<void> {
@@ -41,7 +27,6 @@ async function remove(chefId: string): Promise<void> {
 
 async function save(chef: Chef): Promise<Chef> {
   if (chef._id) {
-    console.log("updating chef!", chef);
     return httpService.put(`${BASE_URL}${chef._id}`, chef);
   } else {
     return httpService.post(BASE_URL, chef);
@@ -50,9 +35,9 @@ async function save(chef: Chef): Promise<Chef> {
 
 function getDefaultFilter(): FilterBy {
   return {
-    username: "",
-    title: "",
-    description: "",
+    username: '',
+    title: '',
+    description: '',
     labels: [],
   };
 }
