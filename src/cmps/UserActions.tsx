@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import hamburgerIcon from "../assets/imgs/hamburger_menu.png";
 import userIcon from "../assets/imgs/user_icon.png";
+import { authService } from "../services/auth.service";
 
 export function UserActions() {
     const [showUserActionModal, setShowUserActionModal] = useState(false);
@@ -42,7 +43,7 @@ export function UserActions() {
 
     async function handleLogoutClick() {
         try {
-            //   await logout()
+            await authService.logout();
             console.log("logging out...")
             setShowUserActionModal(false);
         } catch (err) {
