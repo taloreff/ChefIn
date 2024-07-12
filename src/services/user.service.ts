@@ -31,13 +31,13 @@ async function update(user: any) {
     return updatedUser
 }
 
-async function login(credentials: any) {
+async function login(credentials: { email: string; password: string }) {
     const user = await httpService.post(`auth/login`, credentials)
     sessionStorage.setItem('loggedinUser', JSON.stringify(user))
     return user
 }
 
-async function signup(credentials: any) {
+async function signup(credentials: { email: string; password: string; confirmPassword: string }) {
     const user = await httpService.post(`auth/signup`, credentials)
     sessionStorage.setItem('loggedinUser', JSON.stringify(user))
     return user

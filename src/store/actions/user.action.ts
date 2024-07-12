@@ -1,8 +1,9 @@
-import { userService } from "../../services/user.service";
+import { authService } from "../../services/auth.service";
 import { store } from '../store';
 
 import { LOADING_DONE, LOADING_START } from "../reducers/system.reducer";
 import { REMOVE_USER, SET_USER, SET_USERS } from "../reducers/user.reducer";
+import { userService } from "../../services/user.service";
 
 export async function loadUsers() {
     try {
@@ -25,35 +26,39 @@ export async function removeUser(userId: string) {
     }
 }
 
-export async function login(credentials: any) {
+export async function login(credentials: { email: string; password: string }) {
     try {
-        const user = await userService.login(credentials)
+        const response = await authService.login(credentials.email, credentials.password)
         store.dispatch({
             type: SET_USER,
-            user
+            user: response.user
         })
-        return user
-    } catch (err) {
+        console.log('Welcome back ' + response.user.fullname + "!")
+        return response.user
+    } catch (err: any) {
+        console.log('Cannot log in: ' + err.message)
         throw err
     }
 }
 
-export async function signup(credentials: any) {
+export async function signup(credentials: { email: string; password: string; confirmPassword: string }) {
     try {
-        const user = await userService.signup(credentials)
+        const response = await authService.register(credentials.email, credentials.password, credentials.confirmPassword)
         store.dispatch({
             type: SET_USER,
-            user
+            user: response.user
         })
-        return user
+        console.log('Welcome ' + response.user.fullname + "!")
+        return response.user
     } catch (err) {
+        console.log('Cannot signup')
         throw err
     }
 }
 
 export async function logout() {
     try {
-        await userService.logout()
+        await authService.logout()
         store.dispatch({
             type: SET_USER,
             user: null
@@ -71,8 +76,10 @@ export async function updateUser(user: any) {
             type: SET_USER,
             user: updatedUser
         })
+        console.log('User updated')
         return updatedUser
     } catch (err) {
+        console.log('Cannot update user')
         throw err
     }
 }
