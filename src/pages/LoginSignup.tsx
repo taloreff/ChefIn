@@ -1,13 +1,48 @@
 import React, { useState } from 'react';
 import GoogleIcon from '../assets/svgs/GoogleIcon';
 import Logo from '../assets/imgs/Logo.png';
+import { authService } from '../services/auth.service';
 
 export function LoginSignup() {
-
     const [loginSelected, setLoginSelected] = useState(true);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     function toggleForm() {
         setLoginSelected(prev => !prev);
+    }
+
+    async function handleLogin(e: React.FormEvent) {
+        e.preventDefault();
+        try {
+            const tokens = await authService.login(email, password);
+            console.log('Login successful:', tokens);
+            // Handle successful login, e.g., save tokens to local storage
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                console.error('Login failed:', err.message);
+            } else {
+                console.error('Login failed:', err);
+            }
+            // Handle login error, e.g., show an error message
+        }
+    }
+
+    async function handleRegister(e: React.FormEvent) {
+        e.preventDefault();
+        try {
+            const user = await authService.register(email, password, confirmPassword);
+            console.log('Registration successful:', user);
+            // Handle successful registration, e.g., navigate to login or home page
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                console.error('Registration failed:', err.message);
+            } else {
+                console.error('Registration failed:', err);
+            }
+            // Handle registration error, e.g., show an error message
+        }
     }
 
     return (
@@ -15,33 +50,37 @@ export function LoginSignup() {
             <div className='logo-container'>
                 <img className='logo' src={Logo} alt="Logo" />
             </div>
-            {loginSelected ? <div className='login-container'>
-                <h1>Welcome!</h1>
-                <p className='subtitle'><a className='signin' onClick={toggleForm}>Create a free account</a> or log in to get started</p>
-                <form className='login-form'>
-                    <input type='text' placeholder='Email address' />
-                    <input type='password' placeholder='Password' />
-                    <div className='form-options'>
-                        <label>
-                            <input type='checkbox' />
-                            Remember me
-                        </label>
-                        <a href="#" className='forgot-password'>Forgot password?</a>
-                    </div>
-                    <button type='submit' className='signin-button'>Sign in</button>
-                </form>
-                <button className='google-signin'>
-                    <GoogleIcon />
-                    <span>Sign in with Google</span>
-                </button>
-            </div> : (
+            {loginSelected ? (
+                <div className='login-container'>
+                    <h1>Welcome!</h1>
+                    <p className='subtitle'>
+                        <a className='signin' onClick={toggleForm}>Create a free account</a> or log in to get started
+                    </p>
+                    <form className='login-form' onSubmit={handleLogin}>
+                        <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <div className='form-options'>
+                            <label>
+                                <input type='checkbox' />
+                                Remember me
+                            </label>
+                            <a href="#" className='forgot-password'>Forgot password?</a>
+                        </div>
+                        <button type='submit' className='signin-button'>Sign in</button>
+                    </form>
+                    <button className='google-signin'>
+                        <GoogleIcon />
+                        <span>Sign in with Google</span>
+                    </button>
+                </div>
+            ) : (
                 <div className='login-container'>
                     <h1>Register</h1>
                     <p className='subtitle'>Already have an account? <a className='signin' onClick={toggleForm}>Log in</a></p>
-                    <form className='login-form'>
-                        <input type='text' placeholder='Email address' />
-                        <input type='password' placeholder='Password' />
-                        <input type='password' placeholder='Confirm password' />
+                    <form className='login-form' onSubmit={handleRegister}>
+                        <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         <button type='submit' className='signin-button'>Sign Up</button>
                     </form>
                 </div>
