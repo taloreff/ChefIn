@@ -44,7 +44,6 @@ export function UserActions() {
     async function handleLogoutClick() {
         try {
             await authService.logout();
-            console.log("logging out...")
             setShowUserActionModal(false);
         } catch (err) {
             console.log('Cannot logout')

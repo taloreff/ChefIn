@@ -1,11 +1,37 @@
-import { Route, Routes, Navigate } from "react-router-dom";
-import { LoginSignup } from "./pages/LoginSignup";
-import { ChefIndex } from "./pages/ChefIndex";
-import { AppHeader } from "./cmps/AppHeader";
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { LoginSignup } from './pages/LoginSignup';
+import { ChefIndex } from './pages/ChefIndex';
+import { AppHeader } from './cmps/AppHeader';
+import { useDispatch, useSelector } from 'react-redux';
+import { SET_USER } from './store/reducers/user.reducer';
 
-function App() {
-  const user = useSelector((state: any) => state.userModule.user);
+interface AppState {
+  chefModule: any;
+  userModule: {
+    user: any;
+    users: any[];
+  };
+  systemModule: any;
+}
+
+const App: React.FC = () => {
+  const user = useSelector((state: AppState) => state.userModule.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedinUser');
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+
+    if (loggedInUser && accessToken && refreshToken) {
+      dispatch({ type: SET_USER, user: JSON.parse(loggedInUser) });
+      navigate('/');
+    } else {
+      navigate('/login');
+    }
+  }, [dispatch, navigate]);
 
   return (
     <>
@@ -22,6 +48,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
