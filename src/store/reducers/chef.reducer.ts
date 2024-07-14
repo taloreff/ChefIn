@@ -1,4 +1,4 @@
-import { chefService } from "../../services/chef.service";
+import { postService } from "../../services/post.service";
 
 export const SET_CHEFS = "SET_CHEFS";
 export const REMOVE_CHEF = "REMOVE_CHEF";
@@ -18,7 +18,7 @@ export interface ChefState {
 const initialState: ChefState = {
     chefs: [],
     lastChefs: [],
-    filterBy: chefService.getDefaultFilter(),
+    filterBy: postService.getDefaultFilter(),
     isLoading: true,
 };
 

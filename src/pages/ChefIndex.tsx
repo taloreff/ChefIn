@@ -1,29 +1,29 @@
 // src/pages/ChefIndex.tsx
 import React, { useState, useEffect } from 'react';
 import { ChefList } from '../cmps/ChefList';
-import { chefService } from '../services/chef.service';
-import { Chef } from '../types/Chef';
+import { postService } from '../services/post.service';
+import { Post } from '../types/Post';
 
 export function ChefIndex() {
     const itemsPerPage = 5;
 
     const [italianPage, setItalianPage] = useState(0);
     const [frenchPage, setFrenchPage] = useState(0);
-    const [italianChefs, setItalianChefs] = useState<Chef[]>([]);
-    const [frenchChefs, setFrenchChefs] = useState<Chef[]>([]);
+    const [italianChefs, setItalianChefs] = useState<Post[]>([]);
+    const [frenchChefs, setFrenchChefs] = useState<Post[]>([]);
 
     useEffect(() => {
-        const fetchChefs = async () => {
+        const loadPosts = async () => {
             try {
-                const chefs = await chefService.query({});
-                setItalianChefs(chefs.filter(chef => chef.labels.includes('Italian')));
-                setFrenchChefs(chefs.filter(chef => chef.labels.includes('French')));
+                const posts = await postService.query({});
+                setItalianChefs(posts.filter(post => post.labels.includes('Italian')));
+                setFrenchChefs(posts.filter(post => post.labels.includes('French')));
             } catch (error) {
                 console.error('Error fetching chefs:', error);
             }
         };
 
-        fetchChefs();
+        loadPosts();
     }, []);
 
     const paginatedItalianChefs = italianChefs.slice(italianPage * itemsPerPage, (italianPage + 1) * itemsPerPage);
@@ -41,7 +41,7 @@ export function ChefIndex() {
                 <h2>Italian</h2>
                 <div className="pagination-controls">
                     <button onClick={() => handlePageChange(setItalianPage, italianPage - 1, Math.ceil(italianChefs.length / itemsPerPage))}>&lt;</button>
-                    <ChefList chefs={paginatedItalianChefs} />
+                    <ChefList posts={paginatedItalianChefs} />
                     <button onClick={() => handlePageChange(setItalianPage, italianPage + 1, Math.ceil(italianChefs.length / itemsPerPage))}>&gt;</button>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export function ChefIndex() {
                 <h2>French</h2>
                 <div className="pagination-controls">
                     <button onClick={() => handlePageChange(setFrenchPage, frenchPage - 1, Math.ceil(frenchChefs.length / itemsPerPage))}>&lt;</button>
-                    <ChefList chefs={paginatedFrenchChefs} />
+                    <ChefList posts={paginatedFrenchChefs} />
                     <button onClick={() => handlePageChange(setFrenchPage, frenchPage + 1, Math.ceil(frenchChefs.length / itemsPerPage))}>&gt;</button>
                 </div>
             </div>

@@ -6,21 +6,21 @@ import { authService } from "../services/auth.service";
 
 export function UserActions() {
     const [showUserActionModal, setShowUserActionModal] = useState(false);
-    const userActionsModalRef = useRef(null);
+    const userActionsModalRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-
-        const handleEscapeKeyPress = (event) => {
+        const handleEscapeKeyPress = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
                 setShowUserActionModal(false);
             }
         };
 
-        function handleClickOutside(event) {
+        function handleClickOutside(event: MouseEvent) {
             if (
                 userActionsModalRef.current &&
-                !userActionsModalRef.current.contains(event.target) &&
-                !event.target.classList.contains("user-actions-container")
+                !userActionsModalRef.current.contains(event.target as Node) &&
+                (event.target as Element).classList &&
+                !(event.target as Element).classList.contains("user-actions-container")
             ) {
                 setShowUserActionModal(false);
             }
@@ -41,12 +41,13 @@ export function UserActions() {
         );
     }
 
-    async function handleLogoutClick() {
+    async function handleLogoutClick(event: React.MouseEvent<HTMLAnchorElement>) {
+        event.preventDefault();
         try {
             await authService.logout();
             setShowUserActionModal(false);
         } catch (err) {
-            console.log('Cannot logout')
+            console.log('Cannot logout');
         }
     }
 

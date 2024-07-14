@@ -5,7 +5,31 @@
         "title": "Delicious Italian Cuisine",
         "description": "Experience authentic Italian dishes crafted with love.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "Alice Johnson",
+                "rating": 5,
+                "comment": "Amazing food and great service!"
+            },
+            {
+                "user": "Bob Williams",
+                "rating": 4,
+                "comment": "Delicious dishes, highly recommended."
+            }
+        ],
+        "overview": "Join Chef John Smith for an unforgettable Italian dining experience. With over 15 years of experience in fine dining restaurants across Italy, John brings authentic flavors right to your home.",
+        "whatsIncluded": [
+            "5-course Italian dinner",
+            "Wine pairing",
+            "Cooking demonstration",
+            "Recipe cards to take home"
+        ],
+        "meetingPoint": {
+            "address": "123 Main St, Chicago, IL 60601",
+            "lat": 41.8781,
+            "lng": -87.6298
+        }
     },
     {
         "username": "Julia Jones",
@@ -13,7 +37,31 @@
         "title": "Exquisite French Dishes",
         "description": "Indulge in exquisite French cuisine with a modern twist.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Charlie Brown",
+                "rating": 5,
+                "comment": "Julia's French cuisine is out of this world!"
+            },
+            {
+                "user": "Diana Prince",
+                "rating": 5,
+                "comment": "An exceptional dining experience. Can't wait to book again!"
+            }
+        ],
+        "overview": "Chef Julia Jones brings the elegance of French cuisine to your dining table. Trained in Paris, Julia combines traditional French techniques with modern presentation for a truly unique experience.",
+        "whatsIncluded": [
+            "6-course French dinner",
+            "French wine selection",
+            "Cheese tasting",
+            "Personalized menu consultation"
+        ],
+        "meetingPoint": {
+            "address": "456 Oak Ave, New York, NY 10001",
+            "lat": 40.7128,
+            "lng": -74.0060
+        }
     },
     {
         "username": "Michael Brown",
@@ -21,7 +69,31 @@
         "title": "Fusion Delights",
         "description": "A perfect blend of Italian and French flavors.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/Personal-Chef-Vs.-Private-Chef-Vs.-Catering-Services_kcguon.jpg",
-        "labels": ["Italian", "French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Eva Green",
+                "rating": 5,
+                "comment": "Michael's fusion cuisine is innovative and delicious!"
+            },
+            {
+                "user": "Frank Castle",
+                "rating": 4,
+                "comment": "A unique dining experience that I thoroughly enjoyed."
+            }
+        ],
+        "overview": "Chef Michael Brown specializes in creating innovative fusion dishes that blend the best of Italian and French cuisines. With a background in both culinary traditions, Michael offers a truly unique dining experience.",
+        "whatsIncluded": [
+            "7-course fusion dinner",
+            "Curated wine and cocktail pairings",
+            "Interactive cooking session",
+            "Printed recipes of fusion dishes"
+        ],
+        "meetingPoint": {
+            "address": "789 Elm St, Los Angeles, CA 90001",
+            "lat": 34.0522,
+            "lng": -118.2437
+        }
     },
     {
         "username": "Emily Davis",
@@ -29,7 +101,31 @@
         "title": "Authentic Italian Pasta",
         "description": "Handmade pasta with traditional sauces.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/0_0_cb3l6e.png",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "George Harrison",
+                "rating": 5,
+                "comment": "Emily's pasta is simply the best I've ever had!"
+            },
+            {
+                "user": "Hannah Montana",
+                "rating": 5,
+                "comment": "An authentic Italian experience right at home."
+            }
+        ],
+        "overview": "Join Chef Emily Davis for a pasta-making extravaganza. Emily learned the art of pasta-making from Italian grandmothers during her culinary journey through Italy, and now brings those authentic techniques to your kitchen.",
+        "whatsIncluded": [
+            "Pasta-making workshop",
+            "4-course pasta dinner",
+            "Italian wine pairing",
+            "Pasta-making toolkit to keep"
+        ],
+        "meetingPoint": {
+            "address": "101 Pine Rd, Boston, MA 02108",
+            "lat": 42.3601,
+            "lng": -71.0589
+        }
     },
     {
         "username": "James Wilson",
@@ -37,7 +133,31 @@
         "title": "Classic French Desserts",
         "description": "Delicious French pastries and desserts.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/https_3A_2F_2Fcdn.evbuc.com_2Fimages_2F785460179_2F1955634339413_2F1_2Foriginal_ohaw4z.jpg",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Iris Jones",
+                "rating": 5,
+                "comment": "James' desserts are heavenly! A true master of French pastry."
+            },
+            {
+                "user": "Jack Robinson",
+                "rating": 4,
+                "comment": "Delightful desserts and a fun learning experience."
+            }
+        ],
+        "overview": "Chef James Wilson specializes in classic French desserts and pastries. Trained at Le Cordon Bleu in Paris, James brings the sweet flavors of France to your dining table with a mix of demonstration and hands-on experience.",
+        "whatsIncluded": [
+            "Dessert-making workshop",
+            "5 classic French desserts to enjoy",
+            "French dessert wine pairing",
+            "Recipe booklet of French desserts"
+        ],
+        "meetingPoint": {
+            "address": "202 Maple Ave, San Francisco, CA 94102",
+            "lat": 37.7749,
+            "lng": -122.4194
+        }
     },
     {
         "username": "Sarah Martinez",
@@ -45,7 +165,31 @@
         "title": "Italian-French Fusion",
         "description": "Unique fusion of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/11062b_c31b5c631e224830a1ff3246b73c3e11_mv2_enumkh.jpg",
-        "labels": ["Italian", "French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Karen Lee",
+                "rating": 5,
+                "comment": "Sarah's fusion dishes are innovative and delicious!"
+            },
+            {
+                "user": "Liam Neeson",
+                "rating": 5,
+                "comment": "A perfect blend of two great culinary traditions."
+            }
+        ],
+        "overview": "Chef Sarah Martinez combines her Italian heritage and French culinary training to create unique fusion dishes. Experience the best of both worlds in this innovative culinary journey.",
+        "whatsIncluded": [
+            "6-course Italian-French fusion dinner",
+            "Curated wine pairings from Italy and France",
+            "Cooking demonstration of fusion techniques",
+            "Fusion recipe cards to take home"
+        ],
+        "meetingPoint": {
+            "address": "303 Birch St, Seattle, WA 98101",
+            "lat": 47.6062,
+            "lng": -122.3321
+        }
     },
     {
         "username": "David Garcia",
@@ -53,7 +197,31 @@
         "title": "Rustic Italian Dishes",
         "description": "Rustic and hearty Italian meals.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018586/chefs_ax3jku.png",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "Mia Farrow",
+                "rating": 5,
+                "comment": "David's rustic Italian dishes transported me straight to Tuscany!"
+            },
+            {
+                "user": "Nathan Drake",
+                "rating": 4,
+                "comment": "Hearty, delicious, and authentic. A great experience."
+            }
+        ],
+        "overview": "Chef David Garcia specializes in rustic Italian cuisine, focusing on hearty, flavorful dishes from the Italian countryside. David's approach emphasizes fresh, local ingredients and traditional cooking methods.",
+        "whatsIncluded": [
+            "5-course rustic Italian dinner",
+            "Italian wine and digestif tasting",
+            "Fresh pasta-making demonstration",
+            "Herb garden tour and usage tips"
+        ],
+        "meetingPoint": {
+            "address": "404 Cedar Ln, Miami, FL 33101",
+            "lat": 25.7617,
+            "lng": -80.1918
+        }
     },
     {
         "username": "Laura Anderson",
@@ -61,7 +229,31 @@
         "title": "Gourmet French Cuisine",
         "description": "Elevate your dining experience with gourmet French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/50144b33-faee-4dd0-af84-fe76990f3491_yhcodm.png",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Oliver Twist",
+                "rating": 5,
+                "comment": "Laura's gourmet French dishes are simply exquisite!"
+            },
+            {
+                "user": "Penny Lane",
+                "rating": 5,
+                "comment": "An unforgettable culinary journey through France."
+            }
+        ],
+        "overview": "Chef Laura Anderson brings the refined elegance of French gourmet cuisine to your home. With experience in Michelin-starred restaurants, Laura creates visually stunning and delicious French dishes that will impress any food enthusiast.",
+        "whatsIncluded": [
+            "7-course gourmet French dinner",
+            "Premium French wine pairing",
+            "Cheese and charcuterie board",
+            "French culinary techniques demonstration"
+        ],
+        "meetingPoint": {
+            "address": "505 Willow Dr, Houston, TX 77001",
+            "lat": 29.7604,
+            "lng": -95.3698
+        }
     },
     {
         "username": "Christopher Lee",
@@ -69,7 +261,31 @@
         "title": "Culinary Journey",
         "description": "Embark on a culinary journey with Italian and French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/85-DSC03401_1666592332_e7mzoo.jpg",
-        "labels": ["Italian", "French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Quinn Fabray",
+                "rating": 5,
+                "comment": "Christopher's culinary journey is a must-try experience!"
+            },
+            {
+                "user": "Rachel Berry",
+                "rating": 4,
+                "comment": "A delightful exploration of Italian and French cuisines."
+            }
+        ],
+        "overview": "Join Chef Christopher Lee on a culinary journey through Italy and France. Christopher's unique background in both cuisines allows him to create a dining experience that highlights the best of both culinary worlds.",
+        "whatsIncluded": [
+            "8-course tasting menu featuring Italian and French dishes",
+            "Wine flight featuring Italian and French wines",
+            "Comparative cooking techniques demonstration",
+            "Cultural and historical context for each dish"
+        ],
+        "meetingPoint": {
+            "address": "606 Oakwood Blvd, Dallas, TX 75201",
+            "lat": 32.7767,
+            "lng": -96.7970
+        }
     },
     {
         "username": "Amanda Walker",
@@ -77,7 +293,31 @@
         "title": "Traditional Italian Pizza",
         "description": "Enjoy traditional Italian pizza with fresh ingredients.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018585/IMG_3577_too70k.jpg",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "Sam Winchester",
+                "rating": 5,
+                "comment": "Amanda's pizzas are the closest thing to authentic Italian pizza I've had outside of Italy!"
+            },
+            {
+                "user": "Tina Cohen-Chang",
+                "rating": 5,
+                "comment": "Delicious pizzas and a fun, interactive experience."
+            }
+        ],
+        "overview": "Chef Amanda Walker specializes in traditional Italian pizza-making. Trained in Naples, the birthplace of pizza, Amanda brings authentic techniques and flavors to create the perfect pizza experience.",
+        "whatsIncluded": [
+            "Pizza-making workshop",
+            "Variety of traditional and creative pizzas to enjoy",
+            "Italian beer and wine tasting",
+            "Pizza dough recipe and techniques to take home"
+        ],
+        "meetingPoint": {
+            "address": "707 Pizzeria Ln, Denver, CO 80201",
+            "lat": 39.7392,
+            "lng": -104.9903
+        }
     },
     {
         "username": "Joshua Hall",
@@ -85,7 +325,31 @@
         "title": "French Fine Dining",
         "description": "Experience fine dining with classic French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/Screen_Shot_2022-01-02_at_7.02.32_PM_l8fesi.png",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Ursula King",
+                "rating": 5,
+                "comment": "Joshua's fine dining experience was absolutely exquisite!"
+            },
+            {
+                "user": "Victor Nikiforov",
+                "rating": 5,
+                "comment": "A true taste of French haute cuisine. Magnifique!"
+            }
+        ],
+        "overview": "Chef Joshua Hall brings the elegance of French fine dining to your home. With experience in prestigious Parisian restaurants, Joshua creates a luxurious dining experience with impeccable presentation and flavors.",
+        "whatsIncluded": [
+            "7-course French fine dining experience",
+            "Premium French wine pairing",
+            "Amuse-bouche and palate cleanser",
+            "French culinary etiquette guide"
+        ],
+        "meetingPoint": {
+            "address": "808 Gourmet Ave, Phoenix, AZ 85001",
+            "lat": 33.4484,
+            "lng": -112.0740
+        }
     },
     {
         "username": "Megan Young",
@@ -93,7 +357,31 @@
         "title": "Gastronomic Delights",
         "description": "A gastronomic delight of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/rs_h_1000_cg_true_ihmofx.jpg",
-        "labels": ["Italian", "French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Walter White",
+                "rating": 5,
+                "comment": "Megan's fusion of Italian and French cuisines is pure chemistry!"
+            },
+            {
+                "user": "Xander Harris",
+                "rating": 4,
+                "comment": "An innovative and delicious culinary experience."
+            }
+        ],
+        "overview": "Chef Megan Young combines her passion for Italian and French cuisines to create a unique gastronomic experience. Her innovative approach brings together the best of both culinary worlds in surprising and delightful ways.",
+        "whatsIncluded": [
+            "8-course tasting menu blending Italian and French flavors",
+            "Curated wine pairing from Italy and France",
+            "Molecular gastronomy demonstration",
+            "Recipe booklet of fusion dishes"
+        ],
+        "meetingPoint": {
+            "address": "909 Fusion St, Portland, OR 97201",
+            "lat": 45.5155,
+            "lng": -122.6789
+        }
     },
     {
         "username": "Andrew Scott",
@@ -101,7 +389,31 @@
         "title": "Italian Seafood Specials",
         "description": "Fresh seafood with Italian flavors.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/samone-scallop-private-chef_kmvm7k.jpg",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "Yuri Plisetsky",
+                "rating": 5,
+                "comment": "Andrew's seafood dishes are a taste of the Italian coast!"
+            },
+            {
+                "user": "Zoe Hart",
+                "rating": 5,
+                "comment": "Freshest seafood prepared with Italian flair. Delicious!"
+            }
+        ],
+        "overview": "Chef Andrew Scott specializes in Italian seafood dishes. Using the freshest catch of the day, Andrew creates flavorful dishes that transport you to the coastal regions of Italy.",
+        "whatsIncluded": [
+            "6-course Italian seafood dinner",
+            "Italian white wine pairing",
+            "Seafood preparation demonstration",
+            "Guide to selecting and preparing fresh seafood"
+        ],
+        "meetingPoint": {
+            "address": "1010 Coastal Rd, San Diego, CA 92101",
+            "lat": 32.7157,
+            "lng": -117.1611
+        }
     },
     {
         "username": "Rachel Green",
@@ -109,7 +421,31 @@
         "title": "French Bistro Experience",
         "description": "Cozy and charming French bistro meals.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018584/1D8F5A1F-5343-423D-A5E6-1B66C7337B71_heic_kwsfm7.png",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Alison DiLaurentis",
+                "rating": 5,
+                "comment": "Rachel's bistro experience was like a trip to Paris!"
+            },
+            {
+                "user": "Bruce Wayne",
+                "rating": 4,
+                "comment": "Delightful French comfort food in a cozy setting."
+            }
+        ],
+        "overview": "Chef Rachel Green brings the charm of a Parisian bistro to your home. Specializing in classic French comfort food, Rachel creates a warm and inviting dining experience with hearty, flavorful dishes.",
+        "whatsIncluded": [
+            "4-course French bistro dinner",
+            "French wine and aperitif tasting",
+            "Cheese and charcuterie board",
+            "French bistro recipe collection"
+        ],
+        "meetingPoint": {
+            "address": "1111 Bistro Blvd, Philadelphia, PA 19101",
+            "lat": 39.9526,
+            "lng": -75.1652
+        }
     },
     {
         "username": "Matthew Turner",
@@ -117,7 +453,31 @@
         "title": "Gourmet Fusion",
         "description": "Innovative fusion of Italian and French cuisines.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pcd1118a-e1576116152495-qawlbn5tw38gmrzix26niedttfaklvc7t5dnsqvqzs_dsihng.png",
-        "labels": ["Italian", "French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Cersei Lannister",
+                "rating": 5,
+                "comment": "Matthew's fusion dishes are a delightful surprise for the palate!"
+            },
+            {
+                "user": "Daenerys Targaryen",
+                "rating": 5,
+                "comment": "An innovative and exciting culinary experience."
+            }
+        ],
+        "overview": "Chef Matthew Turner is a master of culinary fusion, blending Italian and French cuisines in innovative ways. His creative dishes challenge traditional boundaries while respecting the essence of both culinary traditions.",
+        "whatsIncluded": [
+            "7-course gourmet fusion tasting menu",
+            "Paired wines from boutique Italian and French vineyards",
+            "Interactive flavor pairing workshop",
+            "Fusion cooking techniques guide"
+        ],
+        "meetingPoint": {
+            "address": "1212 Innovation Way, Las Vegas, NV 89101",
+            "lat": 36.1699,
+            "lng": -115.1398
+        }
     },
     {
         "username": "Jessica White",
@@ -125,7 +485,31 @@
         "title": "Homestyle Italian Cooking",
         "description": "Comforting homestyle Italian dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/mayaris-voyage-private-chef-small-events-services_gsunhp.jpg",
-        "labels": ["Italian"]
+        "labels": ["Italian"],
+        "reviews": [
+            {
+                "user": "Elsa Arendelle",
+                "rating": 5,
+                "comment": "Jessica's homestyle Italian cooking warmed my heart and soul!"
+            },
+            {
+                "user": "Flynn Rider",
+                "rating": 4,
+                "comment": "Delicious, comforting Italian food just like Nonna used to make."
+            }
+        ],
+        "overview": "Chef Jessica White specializes in homestyle Italian cooking. Drawing from family recipes and traditional techniques, Jessica creates hearty, comforting dishes that bring the warmth of an Italian family kitchen to your home.",
+        "whatsIncluded": [
+            "5-course homestyle Italian dinner",
+            "Italian wine pairing",
+            "Fresh pasta making class",
+            "Family recipe cookbook to take home"
+        ],
+        "meetingPoint": {
+            "address": "1313 Family Cir, Austin, TX 78701",
+            "lat": 30.2672,
+            "lng": -97.7431
+        }
     },
     {
         "username": "Daniel Harris",
@@ -133,7 +517,31 @@
         "title": "French Gourmet Experience",
         "description": "A true French gourmet experience.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018583/pexels-rdne-stock-project-7648311-1024x683_uvvt7p.jpg",
-        "labels": ["French"]
+        "labels": ["French"],
+        "reviews": [
+            {
+                "user": "Gal Gadot",
+                "rating": 5,
+                "comment": "Daniel's French gourmet experience was nothing short of magical!"
+            },
+            {
+                "user": "Henry Cavill",
+                "rating": 5,
+                "comment": "An exquisite journey through French haute cuisine."
+            }
+        ],
+        "overview": "Chef Daniel Harris offers a true French gourmet experience. With training from renowned French chefs, Daniel creates sophisticated dishes that showcase the pinnacle of French culinary artistry.",
+        "whatsIncluded": [
+            "8-course French gourmet tasting menu",
+            "Premium French wine pairing",
+            "Truffle and foie gras tasting",
+            "French culinary history and techniques discussion"
+        ],
+        "meetingPoint": {
+            "address": "1414 Gourmet Pl, New Orleans, LA 70112",
+            "lat": 29.9511,
+            "lng": -90.0715
+        }
     },
     {
         "username": "Ashley Martinez",
@@ -141,22 +549,30 @@
         "title": "Italian-French Cuisine",
         "description": "Delicious blend of Italian and French dishes.",
         "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/chef-will-sanders-ten-o-six-beach-road-bistro-pers_teghjn.jpg",
-        "labels": ["Italian", "French"]
-    },
-    {
-        "username": "Joseph Clark",
-        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/guest-34_uj0xdb.jpg",
-        "title": "Italian Comfort Food",
-        "description": "Hearty Italian comfort food.",
-        "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/guest-34_uj0xdb.jpg",
-        "labels": ["Italian"]
-    },
-    {
-        "username": "Nicole Lewis",
-        "profileImgUrl": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018582/Chef_Walt_and_private_group_1600x_xc4xrq.jpg",
-        "title": "French Culinary Arts",
-        "description": "Masterpieces of French culinary arts.",
-                "image": "https://res.cloudinary.com/dd7nwvjli/image/upload/v1720018587/grilled_prawns_private_chef_chicago_re4abh.jpg",
-        "labels": ["French"]
+        "labels": ["Italian", "French"],
+        "reviews": [
+            {
+                "user": "Indiana Jones",
+                "rating": 5,
+                "comment": "Ashley's Italian-French fusion is a culinary adventure!"
+            },
+            {
+                "user": "James Bond",
+                "rating": 4,
+                "comment": "A sophisticated blend of two great culinary traditions."
+            }
+        ],
+        "overview": "Chef Ashley Martinez crafts a unique dining experience that seamlessly blends Italian and French cuisines. Her innovative approach creates harmonious dishes that highlight the best of both culinary worlds.",
+        "whatsIncluded": [
+            "6-course Italian-French fusion dinner",
+            "Curated wine pairing from Italy and France",
+            "Comparative cooking techniques demonstration",
+            "Fusion recipes to try at home"
+        ],
+        "meetingPoint": {
+            "address": "1515 Fusion Ave, Nashville, TN 37201",
+            "lat": 36.1627,
+            "lng": -86.7816
+        }
     }
 ]

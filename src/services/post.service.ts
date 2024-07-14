@@ -1,8 +1,7 @@
-// src/services/chef.service.ts
 import { httpService } from './http.service';
-import { Chef, FilterBy } from '../types/Chef';
+import { Post, FilterBy } from '../types/Post';
 
-export const chefService = {
+export const postService = {
   query,
   getById,
   save,
@@ -13,23 +12,23 @@ export const chefService = {
 
 const BASE_URL = 'post/';
 
-async function query(filterBy: FilterBy = {}): Promise<Chef[]> {
+async function query(filterBy: FilterBy = {}): Promise<Post[]> {
   return httpService.get(BASE_URL, filterBy);
 }
 
-async function getById(chefId: string): Promise<Chef> {
-  return httpService.get(`${BASE_URL}${chefId}`);
+async function getById(postId: string): Promise<Post> {
+  return httpService.get(`${BASE_URL}${postId}`);
 }
 
-async function remove(chefId: string): Promise<void> {
-  return httpService.delete(`${BASE_URL}${chefId}`);
+async function remove(postId: string): Promise<void> {
+  return httpService.delete(`${BASE_URL}${postId}`);
 }
 
-async function save(chef: Chef): Promise<Chef> {
-  if (chef._id) {
-    return httpService.put(`${BASE_URL}${chef._id}`, chef);
+async function save(post: Post): Promise<Post> {
+  if (post._id) {
+    return httpService.put(`${BASE_URL}${post._id}`, post);
   } else {
-    return httpService.post(BASE_URL, chef);
+    return httpService.post(BASE_URL, post);
   }
 }
 

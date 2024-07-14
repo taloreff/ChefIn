@@ -34,11 +34,13 @@ export const authService = {
   },
 
   async logout(): Promise<void> {
-    localStorage.removeItem('loggedinUser');
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
+    localStorage.clear();
     store.dispatch({ type: SET_USER, user: null });
-    await httpService.get('auth/logout');
+    try {
+      await httpService.get('auth/logout');
+    } catch (err) {
+      console.log('Logout request failed:', err);
+    }
   },
 
   async refresh(): Promise<AuthResponse> {

@@ -1,4 +1,4 @@
-import { chefService } from "../../services/chef.service";
+import { postService } from "../../services/post.service";
 import {
   ADD_CHEF,
   REMOVE_CHEF,
@@ -13,7 +13,7 @@ export async function loadChefs() {
   store.dispatch({ type: SET_IS_LOADING, isLoading: true });
   try {
     const { filterBy } = store.getState().chefModule;
-    const chefs = await chefService.query(filterBy);
+    const chefs = await postService.query(filterBy);
     console.log("chefs from chefs.action: ", chefs)
     store.dispatch({ type: SET_CHEFS, chefs });
   } catch (err) {
@@ -26,7 +26,7 @@ export async function loadChefs() {
 
 export async function removeChef(chefId: string) {
   try {
-    await chefService.remove(chefId);
+    await postService.remove(chefId);
     store.dispatch({ type: REMOVE_CHEF, chefId });
   } catch (err) {
     console.log("Had issues removing chefS", err);
@@ -38,7 +38,7 @@ export async function saveChef(chef: any) {
   try {
     const type = chef._id ? UPDATE_CHEF : ADD_CHEF;
     console.log("TYPE ", type, " CHEF ", chef)
-    const savedChef = await chefService.save(chef);
+    const savedChef = await postService.save(chef);
     console.log("savedChef", savedChef)
     store.dispatch({ type, chef: savedChef });
   } catch (err) {

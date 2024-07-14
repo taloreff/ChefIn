@@ -5,6 +5,7 @@
 /* Pages */
 @import "pages/LoginSignup.css";
 @import "pages/ChefIndex.css";
+@import "pages/ChefDetails.css";
 
 /* Components */
 @import "cmps/AppHeader.css";
