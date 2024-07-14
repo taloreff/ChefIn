@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { postService } from '../services/post.service';
 import { Post } from '../types/Post';
 import { MapContainer } from '../cmps/MapContainer';
+import { ChefIncluded } from '../cmps/ChefIncluded';
+import { ChefRating } from '../cmps/ChefRating';
+import { ChefReviews } from '../cmps/ChefReviews';
 
 export function ChefDetails() {
     const { postId } = useParams<{ postId: string }>();
@@ -51,22 +54,12 @@ export function ChefDetails() {
                 <p>{post.overview}</p>
             </div>
             <div className="whats-included">
-                <h2>What's Included</h2>
-                <ul>
-                    {post.whatsIncluded.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
+                <ChefIncluded items={post.whatsIncluded} />
             </div>
-            <div className="reviews">
-                <h2>Reviews</h2>
-                {post.reviews.map((review, index) => (
-                    <div key={index} className="review">
-                        <p><strong>{review.user}</strong> - {review.rating} stars</p>
-                        <p>{review.comment}</p>
-                    </div>
-                ))}
-            </div>
+            <section className="rating-container">
+                <ChefRating reviews={post.reviews} />
+                <ChefReviews reviews={post.reviews} />
+            </section>
             <div className="map">
                 <h2>Meeting Point</h2>
                 <MapContainer lat={post.meetingPoint.lat} lng={post.meetingPoint.lng} />
