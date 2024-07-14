@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { postService } from '../services/post.service';
-import { Post } from '../types/Post';
+import { Post, Review } from '../types/Post';
 import { MapContainer } from '../cmps/MapContainer';
 import { ChefIncluded } from '../cmps/ChefIncluded';
 import { ChefRating } from '../cmps/ChefRating';
 import { ChefReviews } from '../cmps/ChefReviews';
+import { ChefReviewForm } from '../cmps/ChefReviewForm';
 
 export function ChefDetails() {
     const { postId } = useParams<{ postId: string }>();
     const [post, setPost] = useState<Post | null>(null);
+    const [newReview, setNewReview] = useState<Review>({ user: '', rating: 0, comment: '' });
 
     useEffect(() => {
         loadPost();
@@ -24,6 +26,24 @@ export function ChefDetails() {
         } catch (err) {
             console.log('Failed to fetch chef details', err);
         }
+    }
+
+    async function handleReviewSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        try {
+            if (postId) {
+                const updatedPost = await postService.addReview(postId, newReview);
+                setPost(updatedPost);
+                setNewReview({ user: '', rating: 0, comment: '' });
+            }
+        } catch (err) {
+            console.log('Failed to submit review', err);
+        }
+    }
+
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        const { name, value } = event.target;
+        setNewReview(prevReview => ({ ...prevReview, [name]: value }));
     }
 
     if (!post) {
@@ -59,6 +79,11 @@ export function ChefDetails() {
             <section className="rating-container">
                 <ChefRating reviews={post.reviews} />
                 <ChefReviews reviews={post.reviews} />
+                <ChefReviewForm
+                    handleInputChange={handleInputChange}
+                    handleReviewSubmit={handleReviewSubmit}
+                    newReview={newReview}
+                />
             </section>
             <div className="map">
                 <h2>Meeting Point</h2>

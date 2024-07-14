@@ -1,5 +1,5 @@
 import { httpService } from './http.service';
-import { Post, FilterBy } from '../types/Post';
+import { Post, FilterBy, Review } from '../types/Post';
 
 export const postService = {
   query,
@@ -8,6 +8,7 @@ export const postService = {
   remove,
   getDefaultFilter,
   getFilterFromParams,
+  addReview,
 };
 
 const BASE_URL = 'post/';
@@ -30,6 +31,10 @@ async function save(post: Post): Promise<Post> {
   } else {
     return httpService.post(BASE_URL, post);
   }
+}
+
+async function addReview(postId: string, review: Review): Promise<Post> {
+  return httpService.post(`${BASE_URL}${postId}/review`, review);
 }
 
 function getDefaultFilter(): FilterBy {

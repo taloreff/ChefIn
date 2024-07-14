@@ -1,4 +1,5 @@
 export interface Review {
+  _id?: string;
   user: string;
   rating: number;
   comment: string;
@@ -17,12 +18,16 @@ export interface Post {
   profileImgUrl: string;
   title: string;
   description: string;
-  image: string;
+  image: string; 
   labels: string[];
   overview: string;
-  reviews: Review[];
   whatsIncluded: string[];
-  meetingPoint: MeetingPoint;
+  meetingPoint: {
+    address: string;
+    lat: number;
+    lng: number;
+  };
+  reviews: Review[];
 }
 
 export interface FilterBy {
