@@ -23,7 +23,7 @@ async function getById(postId: string): Promise<Post> {
 }
 
 async function getMyPosts(): Promise<Post[]> {
-  return httpService.get(`${BASE_URL}myposts/`);
+  return httpService.get(`${BASE_URL}myposts`);
 }
 
 async function remove(postId: string): Promise<void> {

@@ -1,31 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Post } from '../types/Post';
 import { utilService } from '../services/util.service';
-import EditPostModal from './EditPostModal';
 
 interface MyPostsPreviewProps {
     post: Post;
+    onEdit: () => void;
+    onDelete: () => void;
 }
 
-function MyPostsPreview({ post }: MyPostsPreviewProps) {
-    const [isEditing, setIsEditing] = useState(false);
-
-    const handleEditClick = () => {
-        setIsEditing(true);
-    };
-
+function MyPostsPreview({ post, onEdit, onDelete }: MyPostsPreviewProps) {
     return (
-        <>
-            <div className="post-card" onClick={handleEditClick}>
-                <img src={post.image} alt={post.title} className="post-image" />
+        <div className="post-card">
+            <img src={post.image} alt={post.title} className="post-image" />
+            <div className="post-content">
                 <h2>{post.title}</h2>
                 <p>{post.description}</p>
                 <p>{post.overview}</p>
-                <p>Labels: {post.labels.join(', ')}</p>
-                <p>Reviews: {utilService.calculateAvgRating(post.reviews)}</p>
+                <div className="post-labels">
+                    {post.labels.map((label, index) => (
+                        <span key={index} className="post-label">{label}</span>
+                    ))}
+                </div>
+                <p className="post-reviews">Reviews: {utilService.calculateAvgRating(post.reviews)}</p>
+                <div className="post-actions">
+                    <button onClick={onDelete} className="delete-button">Delete</button>
+                    <button onClick={onEdit} className="edit-button">Edit</button>
+                </div>
             </div>
-            {isEditing && <EditPostModal post={post} onClose={() => setIsEditing(false)} />}
-        </>
+        </div>
     );
 }
 

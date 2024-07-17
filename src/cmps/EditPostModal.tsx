@@ -6,9 +6,10 @@ import { ImgUploader } from './ImgUploader';
 interface EditPostModalProps {
     post: Post;
     onClose: () => void;
+    onPostUpdated: (updatedPost: Post) => void;
 }
 
-function EditPostModal({ post, onClose }: EditPostModalProps) {
+function EditPostModal({ post, onClose, onPostUpdated }: EditPostModalProps) {
     const [updatedPost, setUpdatedPost] = useState<Post>(post);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,7 +24,8 @@ function EditPostModal({ post, onClose }: EditPostModalProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await postService.save(updatedPost);
+            const savedPost = await postService.save(updatedPost);
+            onPostUpdated(savedPost);
             onClose();
         } catch (error) {
             console.error("Error updating post", error);
@@ -33,7 +35,10 @@ function EditPostModal({ post, onClose }: EditPostModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <h2>Edit Post</h2>
+                <div className="modal-header">
+                    <h2 className="modal-title">Edit Post</h2>
+                    <button className="close-button" onClick={onClose}>&times;</button>
+                </div>
                 <form onSubmit={handleSubmit} className="edit-form">
                     <div className="form-group">
                         <label>Image:</label>
@@ -56,8 +61,8 @@ function EditPostModal({ post, onClose }: EditPostModalProps) {
                         <input type="text" name="labels" value={updatedPost.labels.join(', ')} onChange={(e) => setUpdatedPost({ ...updatedPost, labels: e.target.value.split(', ') })} />
                     </div>
                     <div className="modal-buttons">
-                        <button type="submit" className="save-button">Save</button>
                         <button type="button" className="cancel-button" onClick={onClose}>Cancel</button>
+                        <button type="submit" className="save-button">Save</button>
                     </div>
                 </form>
             </div>

@@ -12,7 +12,7 @@ export interface MeetingPoint {
 }
 
 export interface Post {
-  _id?: string;
+  _id: string;
   userId: string;
   username: string;
   profileImgUrl: string;
