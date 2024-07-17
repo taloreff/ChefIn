@@ -9,12 +9,12 @@ interface AuthResponse {
 }
 
 export const authService = {
-  async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
+  async register(email: string, password: string, confirmPassword: string, username: string): Promise<AuthResponse> {
     if (password !== confirmPassword) {
       throw new Error("Passwords do not match");
     }
 
-    const data = { email, password };
+    const data = { email, password, username };
     const response: AuthResponse = await httpService.post('auth/register', data);
     localStorage.setItem('loggedinUser', JSON.stringify(response.user));
     localStorage.setItem('accessToken', response.accessToken);

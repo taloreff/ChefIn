@@ -8,15 +8,7 @@ import { MyPostsIndex } from './pages/MyPostsIndex';
 import { AppHeader } from './cmps/AppHeader';
 import { SET_USER } from './store/reducers/user.reducer';
 import ChefDetails from './pages/ChefDetails';
-
-interface AppState {
-  chefModule: any;
-  userModule: {
-    user: any;
-    users: any[];
-  };
-  systemModule: any;
-}
+import { AppState } from './types/AppState';
 
 function App() {
   const user = useSelector((state: AppState) => state.userModule.user);

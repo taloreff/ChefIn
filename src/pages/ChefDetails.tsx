@@ -7,11 +7,14 @@ import { ChefIncluded } from '../cmps/ChefIncluded';
 import { ChefRating } from '../cmps/ChefRating';
 import { ChefReviews } from '../cmps/ChefReviews';
 import { ChefReviewForm } from '../cmps/ChefReviewForm';
+import { useSelector } from 'react-redux';
+import { AppState } from '../types/AppState';
 
 export function ChefDetails() {
     const { postId } = useParams<{ postId: string }>();
+    const loggedinUser = useSelector((state: AppState) => state.userModule.user);
     const [post, setPost] = useState<Post | null>(null);
-    const [newReview, setNewReview] = useState<Review>({ user: '', rating: 0, comment: '' });
+    const [newReview, setNewReview] = useState<Review>({ user: loggedinUser?.username || '', rating: 0, comment: '' });
 
     useEffect(() => {
         loadPost();
@@ -44,6 +47,10 @@ export function ChefDetails() {
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const { name, value } = event.target;
         setNewReview(prevReview => ({ ...prevReview, [name]: value }));
+    }
+
+    function handleRatingChange(rating: number) {
+        setNewReview(prevReview => ({ ...prevReview, rating }));
     }
 
     if (!post) {
@@ -82,7 +89,9 @@ export function ChefDetails() {
                 <ChefReviewForm
                     handleInputChange={handleInputChange}
                     handleReviewSubmit={handleReviewSubmit}
+                    handleRatingChange={handleRatingChange}
                     newReview={newReview}
+                    userName={post.username}
                 />
             </section>
             <div className="map">

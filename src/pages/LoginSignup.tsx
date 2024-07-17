@@ -9,9 +9,9 @@ export function LoginSignup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [username, setUsername] = useState('');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const navigate = useNavigate();
-
 
     function toggleForm() {
         setLoginSelected(prev => !prev);
@@ -34,7 +34,7 @@ export function LoginSignup() {
         e.preventDefault();
         setErrorMessage(null);
         try {
-            const user = await authService.register(email, password, confirmPassword);
+            const user = await authService.register(email, password, confirmPassword, username);
             console.log('Registration successful:', user);
             navigate('/')
         } catch (err: unknown) {
@@ -77,6 +77,7 @@ export function LoginSignup() {
                     <p className='subtitle'>Already have an account? <a className='signin' onClick={toggleForm}>Log in</a></p>
                     {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     <form className='login-form' onSubmit={handleRegister}>
+                        <input type='text' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
                         <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
