@@ -9,17 +9,17 @@ export function MyPostsIndex() {
     const [editingPost, setEditingPost] = useState<Post | null>(null);
 
     useEffect(() => {
-        async function loadPosts() {
-            try {
-                const data: Post[] = await postService.getMyPosts();
-                setPosts(data);
-            } catch (error) {
-                console.error("Error loading posts", error);
-            }
-        }
-
         loadPosts();
     }, []);
+
+    async function loadPosts() {
+        try {
+            const data: Post[] = await postService.getMyPosts();
+            setPosts(data);
+        } catch (error) {
+            console.error("Error loading posts", error);
+        }
+    }
 
     function handlePostUpdated(updatedPost: Post) {
         setPosts(prevPosts =>

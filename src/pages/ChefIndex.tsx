@@ -1,8 +1,8 @@
-// src/pages/ChefIndex.tsx
 import React, { useState, useEffect } from 'react';
 import { ChefList } from '../cmps/ChefList';
 import { postService } from '../services/post.service';
 import { Post } from '../types/Post';
+import CreatePostModal from '../cmps/CreatePostModal';
 
 export function ChefIndex() {
     const itemsPerPage = 5;
@@ -11,6 +11,7 @@ export function ChefIndex() {
     const [frenchPage, setFrenchPage] = useState(0);
     const [italianChefs, setItalianChefs] = useState<Post[]>([]);
     const [frenchChefs, setFrenchChefs] = useState<Post[]>([]);
+    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
     useEffect(() => {
         const loadPosts = async () => {
@@ -35,6 +36,14 @@ export function ChefIndex() {
         setPage(page);
     };
 
+    function handlePostCreated(newPost: Post) {
+        if (newPost.labels.includes('Italian')) {
+            setItalianChefs(prevPosts => [...prevPosts, newPost]);
+        } else if (newPost.labels.includes('French')) {
+            setFrenchChefs(prevPosts => [...prevPosts, newPost]);
+        }
+    }
+
     return (
         <div className="chef-index">
             <div className="section">
@@ -53,6 +62,18 @@ export function ChefIndex() {
                     <button onClick={() => handlePageChange(setFrenchPage, frenchPage + 1, Math.ceil(frenchChefs.length / itemsPerPage))}>&gt;</button>
                 </div>
             </div>
+            {isCreateModalOpen && (
+                <CreatePostModal
+                    onClose={() => setIsCreateModalOpen(false)}
+                    onPostCreated={handlePostCreated}
+                />
+            )}
+            <button
+                className="fab"
+                onClick={() => setIsCreateModalOpen(true)}
+            >
+                +
+            </button>
         </div>
     );
 }

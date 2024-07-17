@@ -10,6 +10,8 @@ export const postService = {
   getFilterFromParams,
   addReview,
   getMyPosts,
+  getDefaultPost,
+  getPlaceDetails,
 };
 
 const BASE_URL = 'post/';
@@ -26,14 +28,20 @@ async function getMyPosts(): Promise<Post[]> {
   return httpService.get(`${BASE_URL}myposts`);
 }
 
+async function getPlaceDetails(placeId: string): Promise<any> {
+  return httpService.get(`${BASE_URL}place-details`, { placeId });
+}
+
 async function remove(postId: string): Promise<void> {
   return httpService.delete(`${BASE_URL}${postId}`);
 }
 
 async function save(post: Post): Promise<Post> {
   if (post._id) {
+    console.log('updating post:', post);
     return httpService.put(`${BASE_URL}${post._id}`, post);
   } else {
+    console.log('creating post:', post);
     return httpService.post(BASE_URL, post);
   }
 }
@@ -66,4 +74,25 @@ function getFilterFromParams(searchParams: URLSearchParams): FilterBy {
     }
   }
   return filterBy;
+}
+
+function getDefaultPost(){
+    return {
+      _id: '',
+      userId: '',
+      username: '',
+      profileImgUrl: '',
+      title: '',
+      description: '',
+      image: '',
+      labels: [],
+      overview: '',
+      whatsIncluded: [],
+      meetingPoint: {
+        address: '',
+        lat: 0,
+        lng: 0,
+      },
+      reviews: [],
+    };
 }
