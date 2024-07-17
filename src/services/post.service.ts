@@ -9,6 +9,7 @@ export const postService = {
   getDefaultFilter,
   getFilterFromParams,
   addReview,
+  getMyPosts,
 };
 
 const BASE_URL = 'post/';
@@ -19,6 +20,10 @@ async function query(filterBy: FilterBy = {}): Promise<Post[]> {
 
 async function getById(postId: string): Promise<Post> {
   return httpService.get(`${BASE_URL}${postId}`);
+}
+
+async function getMyPosts(): Promise<Post[]> {
+  return httpService.get(`${BASE_URL}myposts/`);
 }
 
 async function remove(postId: string): Promise<void> {
