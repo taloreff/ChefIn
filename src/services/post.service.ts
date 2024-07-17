@@ -34,7 +34,7 @@ async function save(post: Post): Promise<Post> {
 }
 
 async function addReview(postId: string, review: Review): Promise<Post> {
-  return httpService.post(`${BASE_URL}${postId}/review`, review);
+  return httpService.put(`${BASE_URL}${postId}/review`, review);
 }
 
 function getDefaultFilter(): FilterBy {
