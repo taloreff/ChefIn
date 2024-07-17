@@ -6,14 +6,17 @@ interface MyPostsListProps {
     posts: Post[];
 }
 
-const MyPostsList: React.FC<MyPostsListProps> = ({ posts }) => {
+function MyPostsList({ posts }: MyPostsListProps) {
     return (
-        <div className="posts-grid">
-            {posts.map(post => (
-                <MyPostsPreview key={post._id} post={post} />
-            ))}
-        </div>
+        <>
+            <h1 className='myposts-title'>My Posts</h1>
+            <div className="posts-grid">
+                {posts.length === 0 ? (<p>No posts to display</p>) : posts.map(post => (
+                    <MyPostsPreview key={post._id} post={post} />
+                ))}
+            </div>
+        </>
     );
-};
+}
 
 export default MyPostsList;

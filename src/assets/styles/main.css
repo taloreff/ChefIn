@@ -6,9 +6,11 @@
 @import "pages/LoginSignup.css";
 @import "pages/ChefIndex.css";
 @import "pages/ChefDetails.css";
+@import "pages/MyPosts.css";
 
 /* Components */
 @import "cmps/AppHeader.css";
 @import "cmps/UserActions.css";
 @import "cmps/ChefList.css";
 @import "cmps/ChefPreview.css";
+@import "cmps/EditPostModal.css";

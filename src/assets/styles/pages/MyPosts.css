@@ -1,8 +1,17 @@
+.posts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    justify-content: center;
+    /* Center items horizontally */
 }
 
 .post-card {
@@ -17,4 +26,10 @@
     width: 100%;
     height: auto;
     border-radius: 8px 8px 0 0;
+}
+
+/* Center the single item by adjusting the grid template */
+.posts-grid:only-child {
+    display: flex;
+    justify-content: center;
 }

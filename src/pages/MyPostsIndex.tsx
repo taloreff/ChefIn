@@ -20,8 +20,7 @@ export function MyPostsIndex() {
     }, []);
 
     return (
-        <div>
-            <h1>My Posts</h1>
+        <div className='posts-container'>
             <MyPostsList posts={posts} />
         </div>
     );

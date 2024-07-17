@@ -1,3 +1,5 @@
+import { utilService } from "../services/util.service"
+import { Review } from "../types/Post"
 import StarReviewSvg from "../assets/svgs/StarSmallSvg"
 import CleanlinessSvg from "../assets/svgs/rating/CleanlinessSvg"
 import AccuracySvg from "../assets/svgs/rating/AccuracySvg"
@@ -6,7 +8,11 @@ import CommunicationSvg from "../assets/svgs/rating/CommunicationSvg"
 import LocationSvg from "../assets/svgs/rating/LocationSvg"
 import ValueSvg from "../assets/svgs/rating/ValueSvg"
 
-export function ChefRating({ reviews }) {
+interface ChefRatingProps {
+  reviews: Review[]
+}
+
+export function ChefRating({ reviews }: ChefRatingProps) {
 
   const ratingCategories = [
     { label: 'Cleanliness', value: 4.9, Icon: CleanlinessSvg },
@@ -17,12 +23,7 @@ export function ChefRating({ reviews }) {
     { label: 'Value', value: 4.8, Icon: ValueSvg },
   ]
 
-  function calculateAvgRating(reviews) {
-    if (!reviews || reviews.length === 0) return "0.00"
-    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0)
-    const avgRating = (totalRating / reviews.length).toFixed(1)
-    return avgRating
-  }
+  const avgRating = utilService.calculateAvgRating(reviews)
 
   return (
     <div className="rating-reviews">
@@ -30,11 +31,11 @@ export function ChefRating({ reviews }) {
         <StarReviewSvg />
         {reviews.length !== 0 && (
           <>
-            {calculateAvgRating(reviews) !== "0.00" &&
-              calculateAvgRating(reviews) !== "0.0" && (
+            {avgRating !== "0.00" &&
+              avgRating !== "0.0" && (
                 <>
                   <div className="average-rating">
-                    {calculateAvgRating(reviews)}
+                    {avgRating}
                   </div>
                   <div>·</div>
                 </>

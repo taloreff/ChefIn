@@ -1,8 +1,13 @@
 import StarReviewSvg from "../assets/svgs/StarReviewSvg"
+import { Review } from "../types/Post"
 
-export function ChefReviews({ reviews }) {
+interface ChefReviewsProps {
+  reviews: Review[]
+}
 
-  function generateStars(rating) {
+export function ChefReviews({ reviews }: ChefReviewsProps) {
+
+  function generateStars(rating: Review["rating"]) {
     return Array.from({ length: 5 }, (_, index) => (
       <StarReviewSvg key={index} filled={index < rating} />
     ))
