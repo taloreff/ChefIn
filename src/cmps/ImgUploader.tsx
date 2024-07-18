@@ -20,7 +20,7 @@ export function ImgUploader({ id, onUploaded }: ImgUploaderProps) {
 
     function getUploadLabel() {
         if (imgData.imgUrl) return 'Edit Image';
-        return isUploading ? 'Uploading....' : 'Upload Image';
+        return isUploading ? 'Uploading....' : 'Upload';
     }
 
     return (

@@ -7,6 +7,7 @@
 @import "pages/ChefIndex.css";
 @import "pages/ChefDetails.css";
 @import "pages/MyPosts.css";
+@import "pages/ProfileIndex.css";
 
 /* Components */
 @import "cmps/AppHeader.css";
