@@ -10,14 +10,22 @@
         list-style-type: none;
 
         &.chef-card {
-            border: 1px solid #ccc;
             padding: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
+            color: #fff;
+            background-color: #cbcbcbd2;
+            border-radius: 14px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+            }
+
 
             .chef-header {
                 display: flex;
@@ -47,7 +55,6 @@
                 h2 {
                     margin: 0;
                     font-size: 18px;
-                    color: #777;
                     width: 45%;
                 }
             }
@@ -63,7 +70,6 @@
 
         .chef-desc {
             font-size: 14px;
-            color: #555;
         }
     }
 }

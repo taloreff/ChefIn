@@ -10,6 +10,9 @@
     white-space: nowrap;
     box-shadow: rgb(0 0 0 / 8%) 0px 1px 0px;
     padding: 0 80px;
+    background: linear-gradient(to right, #ff3432, #ff874a);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     a {
         transition: height 0.3s ease;

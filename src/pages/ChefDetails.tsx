@@ -10,6 +10,7 @@ import { ChefReviewForm } from '../cmps/ChefReviewForm';
 import { useSelector } from 'react-redux';
 import { AppState } from '../types/AppState';
 import { userService } from '../services/user.service';
+import placeholderAvatar from '../assets/imgs/avatar.webp';
 
 export function ChefDetails() {
     const { postId } = useParams<{ postId: string }>();
@@ -78,12 +79,6 @@ export function ChefDetails() {
         <div className='details-container'>
             <section className='image-section'>
                 <div className="chef-details">
-                    <div className="hero-section" style={{ backgroundImage: `url(${user.profileImgUrl})` }}>
-                        <div className="hero-content">
-                            <h1>{post.title}</h1>
-                            <p>{user.username}</p>
-                        </div>
-                    </div>
                     <div className="content-card">
                         <div className="post-image-container">
                             <img src={post.image} alt={post.title} className="post-image" />
@@ -93,7 +88,14 @@ export function ChefDetails() {
                                 ))}
                             </div>
                         </div>
-                        <p>{post.description}</p>
+                        <div className="user-details-info">
+                            <img
+                                src={user.profileImgUrl || placeholderAvatar}
+                                alt="Profile"
+                                className="myprofile-pic"
+                            />
+                            <h2>{user.username}</h2>
+                        </div>
                     </div>
                 </div >
             </section>

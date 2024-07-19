@@ -51,36 +51,39 @@ export function ProfileIndex() {
     if (!user) return null; // Return null or a loading indicator if user data is not loaded
 
     return (
-        <div className="myprofile-page">
-            <div className="myprofile-header">
-                <div className="myprofile-pic-container">
-                    <img
-                        src={user.profileImgUrl || placeholderAvatar}
-                        alt="Profile"
-                        className="myprofile-pic"
-                    />
-                    <ImgUploader id={user._id} onUploaded={handleImgUpload} className="profile-uploader" />
+        <div className='myprofile-container'>
+            <div className="myprofile-page">
+                <div className="myprofile-header">
+                    <div className="myprofile-pic-container">
+                        <img
+                            src={user.profileImgUrl || placeholderAvatar}
+                            alt="Profile"
+                            className="myprofile-pic"
+                        />
+                        <ImgUploader id={user._id} onUploaded={handleImgUpload} className="profile-uploader" />
+                    </div>
+                    <h2>{user.username}</h2>
                 </div>
-                <h2>{user.username}</h2>
-            </div>
-            <div className="myprofile-form">
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input type="email" value={user.email} name="email" disabled />
+                <div className="myprofile-form">
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input type="email" value={user.email} name="email" disabled />
+                    </div>
+                    <div className="form-group">
+                        <label>Username:</label>
+                        <input
+                            type="text"
+                            value={user.username}
+                            name="username"
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button onClick={handleSave} className="save-button">
+                        Save
+                    </button>
                 </div>
-                <div className="form-group">
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        value={user.username}
-                        name="username"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button onClick={handleSave} className="save-button">
-                    Save
-                </button>
             </div>
         </div>
+
     );
 }

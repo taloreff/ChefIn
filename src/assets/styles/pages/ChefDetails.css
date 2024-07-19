@@ -1,6 +1,6 @@
 .details-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 100px auto;
 }
 
 .image-section {
@@ -87,11 +87,21 @@
     position: relative;
 }
 
+.user-details-info {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+
+    &>* {
+        margin: 20px 10px;
+    }
+}
+
 .post-image {
     width: 100%;
     height: auto;
     max-height: 600px;
-    object-fit: cover;
+    /* object-fit: cover; */
     border-radius: 8px;
     margin-bottom: 2rem;
 }
@@ -288,13 +298,13 @@ progress {
 }
 
 .review-form {
-    margin-top: 2rem;
     padding: 1.5rem;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 60px;
     text-align: center;
 }
 

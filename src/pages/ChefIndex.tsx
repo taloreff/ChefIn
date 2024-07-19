@@ -3,6 +3,8 @@ import { ChefList } from '../cmps/ChefList';
 import { postService } from '../services/post.service';
 import { Post } from '../types/Post';
 import CreatePostModal from '../cmps/CreatePostModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export function ChefIndex() {
     const itemsPerPage = 5;
@@ -49,17 +51,25 @@ export function ChefIndex() {
             <div className="section">
                 <h2>Italian</h2>
                 <div className="pagination-controls">
-                    <button onClick={() => handlePageChange(setItalianPage, italianPage - 1, Math.ceil(italianChefs.length / itemsPerPage))}>&lt;</button>
+                    <button onClick={() => handlePageChange(setItalianPage, italianPage - 1, Math.ceil(italianChefs.length / itemsPerPage))}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
                     <ChefList posts={paginatedItalianChefs} />
-                    <button onClick={() => handlePageChange(setItalianPage, italianPage + 1, Math.ceil(italianChefs.length / itemsPerPage))}>&gt;</button>
+                    <button onClick={() => handlePageChange(setItalianPage, italianPage + 1, Math.ceil(italianChefs.length / itemsPerPage))}>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
                 </div>
             </div>
             <div className="section">
                 <h2>French</h2>
                 <div className="pagination-controls">
-                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage - 1, Math.ceil(frenchChefs.length / itemsPerPage))}>&lt;</button>
+                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage - 1, Math.ceil(frenchChefs.length / itemsPerPage))}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
                     <ChefList posts={paginatedFrenchChefs} />
-                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage + 1, Math.ceil(frenchChefs.length / itemsPerPage))}>&gt;</button>
+                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage + 1, Math.ceil(frenchChefs.length / itemsPerPage))}>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
                 </div>
             </div>
             {isCreateModalOpen && (
@@ -72,7 +82,7 @@ export function ChefIndex() {
                 className="fab"
                 onClick={() => setIsCreateModalOpen(true)}
             >
-                +
+                <FontAwesomeIcon icon={faPlus} />
             </button>
         </div>
     );
