@@ -11,6 +11,8 @@ interface CreatePostModalProps {
     onPostCreated: (newPost: Post) => void;
 }
 
+const labelsOptions = ['Italian', 'French', 'Asian', 'Middle-East', 'African'];
+
 function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
     const [newPost, setNewPost] = useState<Post>(postService.getDefaultPost());
     const loggedinUser = useSelector((state: AppState) => state.userModule.user);
@@ -24,8 +26,14 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
         setNewPost({ ...newPost, image: imgUrl });
     };
 
-    const handleLabelsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNewPost({ ...newPost, labels: e.target.value.split(',').map(label => label.trim()) });
+    const handleLabelChange = (label: string) => {
+        setNewPost(prevPost => {
+            if (prevPost.labels.includes(label)) {
+                return { ...prevPost, labels: prevPost.labels.filter(l => l !== label) };
+            } else {
+                return { ...prevPost, labels: [...prevPost.labels, label] };
+            }
+        });
     };
 
     const handleWhatsIncludedChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -98,8 +106,20 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
                         <textarea name="overview" value={newPost.overview} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
-                        <label>Labels (comma-separated):</label>
-                        <input type="text" name="labels" value={newPost.labels.join(', ')} onChange={handleLabelsChange} />
+                        <label>Labels:</label>
+                        <div className="labels-options">
+                            {labelsOptions.map(label => (
+                                <div key={label} className="label-option">
+                                    <input
+                                        type="checkbox"
+                                        id={label}
+                                        checked={newPost.labels.includes(label)}
+                                        onChange={() => handleLabelChange(label)}
+                                    />
+                                    <label htmlFor={label}>{label}</label>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className="form-group">
                         <label>What's Included (one item per line):</label>
