@@ -2,36 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { userService } from '../services/user.service';
 import { ImgUploader } from '../cmps/ImgUploader';
 import placeholderAvatar from '../assets/imgs/avatar.webp'
+import { AppState } from '../types/AppState';
+import { useSelector } from 'react-redux';
 
 export function ProfileIndex() {
-    const [user, setUser] = useState({
-        _id: '',
-        profilePicUrl: '',
-        username: '',
-        email: '',
-    });
+    const [user, setUser] = useState({});
+    const loggedinUser = useSelector((state: AppState) => state.userModule.user);
+
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            const loggedinUser = userService.getLoggedinUser();
-            if (loggedinUser) {
-                const userData = await userService.getById(loggedinUser._id);
-                setUser(userData);
-            }
-        };
-        fetchUserData();
+        loadUserData();
     }, []);
 
-    const handleImgUpload = (id: string, imgUrl: string) => {
-        setUser({ ...user, profilePicUrl: imgUrl });
-    };
+    async function loadUserData() {
+        if (loggedinUser) {
+            const userData = await userService.getById(loggedinUser._id);
+            setUser(userData);
+        }
+    }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    function handleImgUpload(id: string, imgUrl: string) {
+        setUser({ ...user, profilePicUrl: imgUrl });
+    }
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
-    };
+    }
 
-    const handleSave = async () => {
+    async function handleSave() {
         try {
             await userService.update(user);
             alert('Profile updated successfully!');
@@ -39,7 +38,7 @@ export function ProfileIndex() {
             console.error('Error updating profile', error);
             alert('Failed to update profile');
         }
-    };
+    }
 
     return (
         <div className="myprofile-page">

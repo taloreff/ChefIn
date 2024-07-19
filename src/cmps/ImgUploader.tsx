@@ -27,7 +27,6 @@ export function ImgUploader({ id, onUploaded }: ImgUploaderProps) {
         <section className="upload-preview">
             <label className="upload-label" htmlFor={`imgUpload-${id}`}>{getUploadLabel()}</label>
             <input className='file-upload' type="file" onChange={uploadImg} accept="image/*" id={`imgUpload-${id}`} />
-            {imgData.imgUrl && <img src={imgData.imgUrl} alt="Uploaded" />}
         </section>
     );
 }

@@ -18,7 +18,7 @@ function MyPostsList({ posts, onEdit, onDelete }: MyPostsListProps) {
                         key={post._id}
                         post={post}
                         onEdit={() => onEdit(post)}
-                        onDelete={() => onDelete(post._id)}
+                        onDelete={() => onDelete(post._id!)}
                     />
                 ))}
             </div>

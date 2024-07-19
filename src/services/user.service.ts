@@ -18,8 +18,8 @@ function getUsers() {
 }
 
 async function getById(userId: string) {
-    const user = await httpService.get(`${BASE_URL}${userId}`)
-    return user
+    const user = await httpService.get(`${BASE_URL}${userId}`);
+    return user;
 }
 
 function remove(userId: string) {
@@ -50,4 +50,14 @@ async function logout() {
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser') || 'null')
+}
+
+function getDefaultUser(){
+    return {
+        username: '',
+        email: '',
+        password: '',
+        profileImgUrl: '',
+        tokens: [],
+    }
 }

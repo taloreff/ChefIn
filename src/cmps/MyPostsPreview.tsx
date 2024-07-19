@@ -11,6 +11,12 @@ interface MyPostsPreviewProps {
 function MyPostsPreview({ post, onEdit, onDelete }: MyPostsPreviewProps) {
     return (
         <div className="post-card">
+            {post.userId && (
+                <div className="post-user">
+                    <img src={post.userId.profileImgUrl} alt={post.userId.username} className="post-user-image" />
+                    <span className="post-user-name">{post.userId.username}</span>
+                </div>
+            )}
             <img src={post.image} alt={post.title} className="post-image" />
             <div className="post-content">
                 <h2>{post.title}</h2>
