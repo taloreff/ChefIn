@@ -12,10 +12,10 @@ export function ChefPreview({ post }: ChefPreviewProps) {
     const [user, setUser] = useState<{ username: string, profileImgUrl: string } | null>(null);
 
     useEffect(() => {
-        loadUsers();
+        loadUser();
     }, []);
 
-    const loadUsers = async () => {
+    const loadUser = async () => {
         try {
             const userData = await userService.getById(post.userId);
             setUser(userData);

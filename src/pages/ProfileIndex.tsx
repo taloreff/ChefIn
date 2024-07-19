@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { userService } from '../services/user.service';
 import { ImgUploader } from '../cmps/ImgUploader';
-import placeholderAvatar from '../assets/imgs/avatar.webp'
+import placeholderAvatar from '../assets/imgs/avatar.webp';
 import { AppState } from '../types/AppState';
 import { useSelector } from 'react-redux';
+import { User } from '../types/User';
+import { useNavigate } from 'react-router-dom';
 
 export function ProfileIndex() {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState<User | null>(null);
+    const navigate = useNavigate();
     const loggedinUser = useSelector((state: AppState) => state.userModule.user);
-
 
     useEffect(() => {
         loadUserData();
@@ -22,34 +24,42 @@ export function ProfileIndex() {
     }
 
     function handleImgUpload(id: string, imgUrl: string) {
-        setUser({ ...user, profilePicUrl: imgUrl });
+        if (user) {
+            setUser({ ...user, profileImgUrl: imgUrl });
+        }
     }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
-        setUser({ ...user, [name]: value });
+        if (user) {
+            setUser({ ...user, [name]: value });
+        }
     }
 
     async function handleSave() {
         try {
-            await userService.update(user);
-            alert('Profile updated successfully!');
+            if (user) {
+                await userService.update(user);
+                navigate('/')
+            }
         } catch (error) {
             console.error('Error updating profile', error);
             alert('Failed to update profile');
         }
     }
 
+    if (!user) return null; // Return null or a loading indicator if user data is not loaded
+
     return (
         <div className="myprofile-page">
             <div className="myprofile-header">
                 <div className="myprofile-pic-container">
                     <img
-                        src={user.profilePicUrl || placeholderAvatar}
+                        src={user.profileImgUrl || placeholderAvatar}
                         alt="Profile"
                         className="myprofile-pic"
                     />
-                    <ImgUploader id={user._id} onUploaded={handleImgUpload} />
+                    <ImgUploader id={user._id} onUploaded={handleImgUpload} className="profile-uploader" />
                 </div>
                 <h2>{user.username}</h2>
             </div>

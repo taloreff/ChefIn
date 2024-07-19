@@ -28,7 +28,7 @@
     border: 3px solid #ff5a5f;
 }
 
-.upload-preview {
+.upload-preview.profile-uploader {
     position: absolute;
     top: 0;
     right: 0;
@@ -45,6 +45,10 @@
 
 .file-upload {
     opacity: 0;
+}
+
+.upload-preview.upload-preview.profile-uploader img {
+    display: none;
 }
 
 .upload-preview img {

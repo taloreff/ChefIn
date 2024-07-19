@@ -4,9 +4,10 @@ import { uploadService } from '../services/upload.service';
 interface ImgUploaderProps {
     id: string;
     onUploaded: (id: string, imgUrl: string) => void;
+    className?: string;
 }
 
-export function ImgUploader({ id, onUploaded }: ImgUploaderProps) {
+export function ImgUploader({ id, onUploaded, className }: ImgUploaderProps) {
     const [imgData, setImgData] = useState<{ imgUrl: string | null, width?: number, height?: number }>({ imgUrl: null });
     const [isUploading, setIsUploading] = useState(false);
 
@@ -24,9 +25,10 @@ export function ImgUploader({ id, onUploaded }: ImgUploaderProps) {
     }
 
     return (
-        <section className="upload-preview">
+        <section className={`upload-preview ${className}`}>
             <label className="upload-label" htmlFor={`imgUpload-${id}`}>{getUploadLabel()}</label>
             <input className='file-upload' type="file" onChange={uploadImg} accept="image/*" id={`imgUpload-${id}`} />
+            {imgData.imgUrl && <img src={imgData.imgUrl} alt="Uploaded" />}
         </section>
     );
 }

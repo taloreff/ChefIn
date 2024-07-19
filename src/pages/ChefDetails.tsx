@@ -9,16 +9,33 @@ import { ChefReviews } from '../cmps/ChefReviews';
 import { ChefReviewForm } from '../cmps/ChefReviewForm';
 import { useSelector } from 'react-redux';
 import { AppState } from '../types/AppState';
+import { userService } from '../services/user.service';
 
 export function ChefDetails() {
     const { postId } = useParams<{ postId: string }>();
     const loggedinUser = useSelector((state: AppState) => state.userModule.user);
     const [post, setPost] = useState<Post | null>(null);
     const [newReview, setNewReview] = useState<Review>({ user: loggedinUser?.username || '', rating: 0, comment: '' });
+    const [user, setUser] = useState<{ username: string, profileImgUrl: string } | null>(null);
 
     useEffect(() => {
         loadPost();
     }, [postId]);
+
+    useEffect(() => {
+        if (post) {
+            loadUser(post.userId);
+        }
+    }, [post]);
+
+    const loadUser = async (userId: string) => {
+        try {
+            const userData = await userService.getById(userId);
+            setUser(userData);
+        } catch (error) {
+            console.error("Error fetching user data", error);
+        }
+    };
 
     async function loadPost() {
         try {
@@ -53,29 +70,33 @@ export function ChefDetails() {
         setNewReview(prevReview => ({ ...prevReview, rating }));
     }
 
-    if (!post) {
+    if (!post || !user) {
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="chef-details">
-            <div className="hero-section" style={{ backgroundImage: `url(${post.profileImgUrl})` }}>
-                <div className="hero-content">
-                    <h1>{post.title}</h1>
-                    <p>{post.username}</p>
-                </div>
-            </div>
-            <div className="content-card">
-                <div className="post-image-container">
-                    <img src={post.image} alt={post.title} className="post-image" />
-                    <div className="labels">
-                        {post.labels.map((label, index) => (
-                            <span key={index} className="label">{label}</span>
-                        ))}
+        <div className='details-container'>
+            <section className='image-section'>
+                <div className="chef-details">
+                    <div className="hero-section" style={{ backgroundImage: `url(${user.profileImgUrl})` }}>
+                        <div className="hero-content">
+                            <h1>{post.title}</h1>
+                            <p>{user.username}</p>
+                        </div>
                     </div>
-                </div>
-                <p>{post.description}</p>
-            </div>
+                    <div className="content-card">
+                        <div className="post-image-container">
+                            <img src={post.image} alt={post.title} className="post-image" />
+                            <div className="labels">
+                                {post.labels.map((label, index) => (
+                                    <span key={index} className="label">{label}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <p>{post.description}</p>
+                    </div>
+                </div >
+            </section>
             <div className="overview">
                 <h2>Overview</h2>
                 <p>{post.overview}</p>

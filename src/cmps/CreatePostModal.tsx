@@ -62,10 +62,6 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
         }
     };
 
-
-
-
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -79,7 +75,7 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content">
+            <div className="modal-content create-post-modal">
                 <div className="modal-header">
                     <h2 className="modal-title">Create New Post</h2>
                     <button className="close-button" onClick={onClose}>&times;</button>
@@ -87,7 +83,7 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
                 <form onSubmit={handleSubmit} className="create-form">
                     <div className="form-group">
                         <label>Image:</label>
-                        <ImgUploader id="post-image" onUploaded={handleImgUpload} />
+                        <ImgUploader id="post-image" onUploaded={handleImgUpload} className="create-post-uploader" />
                     </div>
                     <div className="form-group">
                         <label>Title:</label>

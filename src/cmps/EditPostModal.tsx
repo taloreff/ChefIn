@@ -42,7 +42,7 @@ function EditPostModal({ post, onClose, onPostUpdated }: EditPostModalProps) {
                 <form onSubmit={handleSubmit} className="edit-form">
                     <div className="form-group">
                         <label>Image:</label>
-                        <ImgUploader id="post-image" onUploaded={handleImgUpload} />
+                        <ImgUploader id="post-image" onUploaded={handleImgUpload} className="create-post-uploader" />
                     </div>
                     <div className="form-group">
                         <label>Title:</label>
