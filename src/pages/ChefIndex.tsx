@@ -6,72 +6,72 @@ import CreatePostModal from '../cmps/CreatePostModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-export function ChefIndex() {
-    const itemsPerPage = 5;
+const ITEMS_PER_PAGE = 5;
+const CUISINES = ['Italian', 'French', 'Asian', 'Middle-East', 'African'];
 
-    const [italianPage, setItalianPage] = useState(0);
-    const [frenchPage, setFrenchPage] = useState(0);
-    const [italianChefs, setItalianChefs] = useState<Post[]>([]);
-    const [frenchChefs, setFrenchChefs] = useState<Post[]>([]);
+export function ChefIndex() {
+    const [allPosts, setAllPosts] = useState<Post[]>([]);
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const [pages, setPages] = useState<Record<string, number>>(
+        CUISINES.reduce((acc, cuisine) => ({ ...acc, [cuisine]: 0 }), {})
+    );
 
     useEffect(() => {
         const loadPosts = async () => {
             try {
                 const posts = await postService.query({});
-                setItalianChefs(posts.filter(post => post.labels.includes('Italian')));
-                setFrenchChefs(posts.filter(post => post.labels.includes('French')));
+                setAllPosts(posts);
             } catch (error) {
-                console.error('Error fetching chefs:', error);
+                console.error('Error fetching posts:', error);
             }
         };
 
         loadPosts();
     }, []);
 
-    const paginatedItalianChefs = italianChefs.slice(italianPage * itemsPerPage, (italianPage + 1) * itemsPerPage);
-    const paginatedFrenchChefs = frenchChefs.slice(frenchPage * itemsPerPage, (frenchPage + 1) * itemsPerPage);
+    const handlePageChange = (cuisine: string, change: number) => {
+        setPages(prevPages => {
+            const newPage = prevPages[cuisine] + change;
+            const filteredPosts = allPosts.filter(post => post.labels.includes(cuisine));
+            const maxPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
 
-    const handlePageChange = (setPage: React.Dispatch<React.SetStateAction<number>>, page: number, maxPages: number) => {
-        if (page < 0) return;
-        if (page >= maxPages) return;
-        setPage(page);
+            if (newPage < 0 || newPage >= maxPages) return prevPages;
+
+            return { ...prevPages, [cuisine]: newPage };
+        });
     };
 
-    function handlePostCreated(newPost: Post) {
-        if (newPost.labels.includes('Italian')) {
-            setItalianChefs(prevPosts => [...prevPosts, newPost]);
-        } else if (newPost.labels.includes('French')) {
-            setFrenchChefs(prevPosts => [...prevPosts, newPost]);
-        }
-    }
+    const handlePostCreated = (newPost: Post) => {
+        setAllPosts(prevPosts => [...prevPosts, newPost]);
+    };
+
+    const getPostsForCuisine = (cuisine: string) => {
+        const filteredPosts = allPosts.filter(post => post.labels.includes(cuisine));
+        const startIndex = pages[cuisine] * ITEMS_PER_PAGE;
+        return filteredPosts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    };
 
     return (
         <div className="chef-index">
-            <div className="section">
-                <h2>Italian</h2>
-                <div className="pagination-controls">
-                    <button onClick={() => handlePageChange(setItalianPage, italianPage - 1, Math.ceil(italianChefs.length / itemsPerPage))}>
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                    </button>
-                    <ChefList posts={paginatedItalianChefs} />
-                    <button onClick={() => handlePageChange(setItalianPage, italianPage + 1, Math.ceil(italianChefs.length / itemsPerPage))}>
-                        <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
-                </div>
-            </div>
-            <div className="section">
-                <h2>French</h2>
-                <div className="pagination-controls">
-                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage - 1, Math.ceil(frenchChefs.length / itemsPerPage))}>
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                    </button>
-                    <ChefList posts={paginatedFrenchChefs} />
-                    <button onClick={() => handlePageChange(setFrenchPage, frenchPage + 1, Math.ceil(frenchChefs.length / itemsPerPage))}>
-                        <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
-                </div>
-            </div>
+            {CUISINES.map(cuisine => {
+                const postsForCuisine = getPostsForCuisine(cuisine);
+                if (postsForCuisine.length === 0) return null;
+
+                return (
+                    <div key={cuisine} className="section">
+                        <h2>{cuisine}</h2>
+                        <div className="pagination-controls">
+                            <button onClick={() => handlePageChange(cuisine, -1)}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <ChefList posts={postsForCuisine} />
+                            <button onClick={() => handlePageChange(cuisine, 1)}>
+                                <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
+                        </div>
+                    </div>
+                );
+            })}
             {isCreateModalOpen && (
                 <CreatePostModal
                     onClose={() => setIsCreateModalOpen(false)}

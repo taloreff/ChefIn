@@ -12,6 +12,7 @@ export const postService = {
   getMyPosts,
   getDefaultPost,
   getPlaceDetails,
+  filterPostsByCuisine
 };
 
 const BASE_URL = 'post/';
@@ -48,6 +49,10 @@ async function save(post: Post): Promise<Post> {
 
 async function addReview(postId: string, review: Review): Promise<Post> {
   return httpService.put(`${BASE_URL}${postId}/review`, review);
+}
+
+function filterPostsByCuisine(posts: Post[], cuisine: string): Post[] {
+  return posts.filter(post => post.labels.includes(cuisine));
 }
 
 function getDefaultFilter(): FilterBy {

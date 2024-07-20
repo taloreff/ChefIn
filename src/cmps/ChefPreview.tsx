@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Post } from '../types/Post';
 import Avatar from '../assets/imgs/avatar.webp';
 import { userService } from '../services/user.service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faC, faComment } from '@fortawesome/free-solid-svg-icons';
 
 interface ChefPreviewProps {
     post: Post;
@@ -36,6 +38,10 @@ export function ChefPreview({ post }: ChefPreviewProps) {
                 </div>
                 <img className="chef-image" src={post.image} alt="kitchen" />
                 <p className='chef-desc'>{post.description}</p>
+                <div className='chef-review-count'>
+                    <p >{post.reviews.length}</p>
+                    <FontAwesomeIcon icon={faComment} />
+                </div>
             </Link>
         </div>
     );

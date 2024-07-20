@@ -71,6 +71,17 @@
         .chef-desc {
             font-size: 14px;
         }
+
+        .chef-review-count {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-left: 16px;
+
+            &>* {
+                margin-right: 8px;
+            }
+        }
     }
 }
 
