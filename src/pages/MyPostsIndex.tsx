@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { postService } from '../services/post.service';
 import MyPostsList from '../cmps/MyPostsList';
 import { Post } from '../types/Post';
@@ -7,6 +7,7 @@ import EditPostModal from '../cmps/EditPostModal';
 export function MyPostsIndex() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [editingPost, setEditingPost] = useState<Post | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         loadPosts();
@@ -16,8 +17,10 @@ export function MyPostsIndex() {
         try {
             const data: Post[] = await postService.getMyPosts();
             setPosts(data);
+            setIsLoading(false);
         } catch (error) {
             console.error("Error loading posts", error);
+            setIsLoading(false);
         }
     }
 
@@ -38,7 +41,7 @@ export function MyPostsIndex() {
 
     return (
         <div className='posts-container'>
-            <MyPostsList posts={posts} onEdit={setEditingPost} onDelete={handleDelete} />
+            <MyPostsList posts={posts} onEdit={setEditingPost} onDelete={handleDelete} isLoading={isLoading} />
             {editingPost && (
                 <EditPostModal
                     post={editingPost}

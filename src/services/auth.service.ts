@@ -33,6 +33,15 @@ export const authService = {
     return response;
   },
 
+  async googleLogin(credential: string): Promise<AuthResponse> {
+    const response: AuthResponse = await httpService.post('auth/google', { credential });
+    localStorage.setItem('loggedinUser', JSON.stringify(response.user));
+    localStorage.setItem('accessToken', response.accessToken);
+    localStorage.setItem('refreshToken', response.refreshToken);
+    store.dispatch({ type: SET_USER, user: response.user });
+    return response;
+  },
+
   async logout(): Promise<void> {
     localStorage.clear();
     store.dispatch({ type: SET_USER, user: null });
@@ -44,8 +53,13 @@ export const authService = {
   },
 
   async refresh(): Promise<AuthResponse> {
-    const response: AuthResponse = await httpService.get('auth/refresh');
+    const refreshToken = localStorage.getItem('refreshToken');
+    if (!refreshToken) {
+      throw new Error("No refresh token available");
+    }
+    const response: AuthResponse = await httpService.post('auth/refresh', { refreshToken });
     localStorage.setItem('accessToken', response.accessToken);
+    localStorage.setItem('refreshToken', response.refreshToken);
     return response;
-  }
+  },
 };

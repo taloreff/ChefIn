@@ -3,6 +3,7 @@ import GoogleIcon from '../assets/svgs/GoogleIcon';
 import Logo from '../assets/imgs/Logo.png';
 import { authService } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
+import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 
 export function LoginSignup() {
     const [loginSelected, setLoginSelected] = useState(true);
@@ -42,6 +43,22 @@ export function LoginSignup() {
         }
     }
 
+    async function handleGoogleSuccess(response: CredentialResponse) {
+        if (response.credential) {
+            try {
+                const tokens = await authService.googleLogin(response.credential);
+                console.log('Google login successful:', tokens);
+                navigate('/')
+            } catch (err) {
+                setErrorMessage('An unexpected error occurred during Google login.');
+            }
+        }
+    }
+
+    function handleGoogleError() {
+        setErrorMessage('Google login failed. Please try again.');
+    }
+
     return (
         <section className='main-login'>
             <div className='logo-container'>
@@ -66,10 +83,12 @@ export function LoginSignup() {
                         </div>
                         <button type='submit' className='signin-button'>Sign in</button>
                     </form>
-                    <button className='google-signin'>
-                        <GoogleIcon />
-                        <span>Sign in with Google</span>
-                    </button>
+                    <div className="google-container">
+                        <GoogleLogin
+                            onSuccess={handleGoogleSuccess}
+                            onError={handleGoogleError}
+                        />
+                    </div>
                 </div>
             ) : (
                 <div className='login-container'>

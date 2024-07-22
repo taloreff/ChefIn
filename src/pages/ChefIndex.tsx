@@ -15,19 +15,22 @@ export function ChefIndex() {
     const [pages, setPages] = useState<Record<string, number>>(
         CUISINES.reduce((acc, cuisine) => ({ ...acc, [cuisine]: 0 }), {})
     );
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const loadPosts = async () => {
-            try {
-                const posts = await postService.query({});
-                setAllPosts(posts);
-            } catch (error) {
-                console.error('Error fetching posts:', error);
-            }
-        };
-
         loadPosts();
     }, []);
+
+    async function loadPosts() {
+        try {
+            const posts = await postService.query({});
+            setAllPosts(posts);
+            setIsLoading(false);
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+            setIsLoading(false);
+        }
+    }
 
     const handlePageChange = (cuisine: string, change: number) => {
         setPages(prevPages => {
@@ -64,7 +67,7 @@ export function ChefIndex() {
                             <button onClick={() => handlePageChange(cuisine, -1)}>
                                 <FontAwesomeIcon icon={faChevronLeft} />
                             </button>
-                            <ChefList posts={postsForCuisine} />
+                            <ChefList posts={postsForCuisine} isLoading={isLoading} />
                             <button onClick={() => handlePageChange(cuisine, 1)}>
                                 <FontAwesomeIcon icon={faChevronRight} />
                             </button>

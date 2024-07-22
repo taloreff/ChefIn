@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { authService } from './auth.service';
 
@@ -42,7 +41,7 @@ axios.interceptors.response.use((response: AxiosResponse) => {
   const originalRequest = error.config;
 
   if (error.response && error.response.status === 401 && !originalRequest._retry) {
-    if (originalRequest.url === '/auth/refresh') {
+    if (originalRequest.url.includes('/auth/refresh')) {
       authService.logout();
       return Promise.reject(error);
     }
@@ -63,7 +62,6 @@ axios.interceptors.response.use((response: AxiosResponse) => {
 
     try {
       const response = await authService.refresh();
-      localStorage.setItem('accessToken', response.accessToken);
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.accessToken}`;
       processQueue(null, response.accessToken);
       return axios(originalRequest);

@@ -194,3 +194,11 @@
 .cancel-button:hover {
     background-color: #ff3b3f;
 }
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: #ffffff;
+}
