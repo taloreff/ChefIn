@@ -5,11 +5,16 @@ import userIcon from "../assets/imgs/user_icon.png";
 import { authService } from "../services/auth.service";
 import { useSelector } from "react-redux";
 import { AppState } from "../types/AppState";
+import { postService } from "../services/post.service";
 
 export function UserActions() {
     const [showUserActionModal, setShowUserActionModal] = useState(false);
     const userActionsModalRef = useRef<HTMLDivElement | null>(null);
     const loggedinUser = useSelector((state: AppState) => state.userModule.user);
+
+    useEffect(() => {
+
+    }, [loggedinUser.profileImgUrl]);
 
     useEffect(() => {
         const handleEscapeKeyPress = (event: KeyboardEvent) => {
@@ -63,7 +68,7 @@ export function UserActions() {
             />
             <img
                 className="user-icon"
-                src={loggedinUser ? loggedinUser.profileImgUrl : userIcon}
+                src={loggedinUser ? postService.getImageUrl(loggedinUser.profileImgUrl) : userIcon}
                 alt="user-icon"
             />
             <div

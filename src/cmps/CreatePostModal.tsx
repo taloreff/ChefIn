@@ -22,8 +22,8 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
         setNewPost({ ...newPost, [name]: value });
     };
 
-    const handleImgUpload = (id: string, imgUrl: string) => {
-        setNewPost({ ...newPost, image: imgUrl });
+    const handleImgUpload = (file: File) => {
+        setNewPost({ ...newPost, image: file });
     };
 
     const handleLabelChange = (label: string) => {
@@ -74,6 +74,7 @@ function CreatePostModal({ onClose, onPostCreated }: CreatePostModalProps) {
         e.preventDefault();
         try {
             const savedPost = await postService.save(newPost);
+            console.log("saved", savedPost);
             onPostCreated(savedPost);
             onClose();
         } catch (error) {

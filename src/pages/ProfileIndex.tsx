@@ -6,9 +6,12 @@ import { AppState } from '../types/AppState';
 import { useSelector } from 'react-redux';
 import { User } from '../types/User';
 import { useNavigate } from 'react-router-dom';
+import { postService } from '../services/post.service';
+import { updateUser } from '../store/actions/user.action';
 
 export function ProfileIndex() {
     const [user, setUser] = useState<User | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null); // New state for image preview
     const navigate = useNavigate();
     const loggedinUser = useSelector((state: AppState) => state.userModule.user);
 
@@ -23,9 +26,11 @@ export function ProfileIndex() {
         }
     }
 
-    function handleImgUpload(id: string, imgUrl: string) {
+    function handleImgUpload(file: File) {
         if (user) {
-            setUser({ ...user, profileImgUrl: imgUrl });
+            const imgUrl = URL.createObjectURL(file);
+            setImagePreview(imgUrl);
+            setUser({ ...user, profileImgUrl: file });
         }
     }
 
@@ -39,7 +44,8 @@ export function ProfileIndex() {
     async function handleSave() {
         try {
             if (user) {
-                await userService.update(user);
+                updateUser(user);
+
                 navigate('/')
             }
         } catch (error) {
@@ -56,7 +62,7 @@ export function ProfileIndex() {
                 <div className="myprofile-header">
                     <div className="myprofile-pic-container">
                         <img
-                            src={user.profileImgUrl || placeholderAvatar}
+                            src={imagePreview || postService.getImageUrl(user.profileImgUrl) || placeholderAvatar}
                             alt="Profile"
                             className="myprofile-pic"
                         />
@@ -84,6 +90,5 @@ export function ProfileIndex() {
                 </div>
             </div>
         </div>
-
     );
 }

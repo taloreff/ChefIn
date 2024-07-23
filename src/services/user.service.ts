@@ -27,7 +27,18 @@ function remove(userId: string) {
 }
 
 async function update(user: any) {
-    const updatedUser = await httpService.put(`${BASE_URL}${user._id}`, user)
+    const formData = new FormData();
+    formData.append('username', user.username);
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('profileImgUrl', user.profileImgUrl);
+
+
+  for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+
+    const updatedUser = await httpService.put(`${BASE_URL}${user._id}`, formData)
     return updatedUser
 }
 

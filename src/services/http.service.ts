@@ -77,27 +77,30 @@ axios.interceptors.response.use((response: AxiosResponse) => {
   return Promise.reject(error);
 });
 
+
 export const httpService = {
-  get(endpoint: string, data?: any) {
-    return ajax(endpoint, 'GET', data);
+  get(endpoint: string, data?: any, headers: any = {}) {
+    return ajax(endpoint, 'GET', data, headers);
   },
-  post(endpoint: string, data?: any) {
-    return ajax(endpoint, 'POST', data);
+  post(endpoint: string, data?: any, headers: any = {}) {
+    return ajax(endpoint, 'POST', data, headers);
   },
-  put(endpoint: string, data?: any) {
-    return ajax(endpoint, 'PUT', data);
+  put(endpoint: string, data?: any, headers: any = {}) {
+    return ajax(endpoint, 'PUT', data, headers);
   },
-  delete(endpoint: string, data?: any) {
-    return ajax(endpoint, 'DELETE', data);
+  delete(endpoint: string, data?: any, headers: any = {}) {
+    return ajax(endpoint, 'DELETE', data, headers);
   }
 };
 
-async function ajax(endpoint: string, method: string = 'GET', data: any = null): Promise<any> {
+async function ajax(endpoint: string, method: string = 'GET', data: any = null, headers: any = {}): Promise<any> {
   try {
+    console.log("TRYING TO UPDATE!!", endpoint, method, data);
     const res = await axios({
       url: endpoint,
       method,
       data,
+      headers,
       params: (method === 'GET') ? data : null
     });
     return res.data;
@@ -113,3 +116,5 @@ async function ajax(endpoint: string, method: string = 'GET', data: any = null):
     throw err;
   }
 }
+
+

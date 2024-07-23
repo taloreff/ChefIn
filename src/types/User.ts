@@ -2,5 +2,5 @@ export interface User {
     _id: string;
     email: string;
     username: string;
-    profileImgUrl?: string;
+    profileImgUrl?: File;
 }

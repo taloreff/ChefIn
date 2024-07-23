@@ -4,7 +4,8 @@ import { Post } from '../types/Post';
 import Avatar from '../assets/imgs/avatar.webp';
 import { userService } from '../services/user.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faC, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { postService } from '../services/post.service';
 
 interface ChefPreviewProps {
     post: Post;
@@ -31,12 +32,12 @@ export function ChefPreview({ post }: ChefPreviewProps) {
             <Link to={`/post/${post._id}`} >
                 <div className="chef-header">
                     <div className="header-info">
-                        <img className="profile-pic" src={user?.profileImgUrl || Avatar} alt="profilepic" />
+                        <img className="profile-pic" src={user ? postService.getImageUrl(user.profileImgUrl) : Avatar} alt="profilepic" />
                         <h4>{user?.username}</h4>
                     </div>
                     <h2>{post.title}</h2>
                 </div>
-                <img className="chef-image" src={post.image} alt="kitchen" />
+                <img className="chef-image" src={postService.getImageUrl(post.image)} alt="kitchen" />
                 <p className='chef-desc'>{post.description}</p>
                 <div className='chef-review-count'>
                     <p >{post.reviews.length}</p>

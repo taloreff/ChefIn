@@ -76,6 +76,7 @@ export async function updateUser(user: any) {
             type: SET_USER,
             user: updatedUser
         })
+        localStorage.setItem('loggedinUser', JSON.stringify(updatedUser))
         console.log('User updated')
         return updatedUser
     } catch (err) {

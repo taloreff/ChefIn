@@ -81,7 +81,7 @@ export function ChefDetails() {
                 <div className="chef-details">
                     <div className="content-card">
                         <div className="post-image-container">
-                            <img src={post.image} alt={post.title} className="post-image" />
+                            <img src={postService.getImageUrl(post.image)} alt={post.title} className="post-image" />
                             <div className="labels">
                                 {post.labels.map((label, index) => (
                                     <span key={index} className="label">{label}</span>
@@ -90,7 +90,7 @@ export function ChefDetails() {
                         </div>
                         <div className="user-details-info">
                             <img
-                                src={user.profileImgUrl || placeholderAvatar}
+                                src={postService.getImageUrl(user.profileImgUrl) || placeholderAvatar}
                                 alt="Profile"
                                 className="myprofile-pic"
                             />

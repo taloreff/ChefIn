@@ -15,10 +15,10 @@ export interface Post {
   _id: string;
   userId: string;
   username: string;
-  profileImgUrl: string;
+  profileImgUrl: File;
   title: string;
   description: string;
-  image: string; 
+  image: File; 
   labels: string[];
   overview: string;
   whatsIncluded: string[];

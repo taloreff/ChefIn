@@ -17,17 +17,19 @@ export function MyPostsIndex() {
         try {
             const data: Post[] = await postService.getMyPosts();
             setPosts(data);
-            setIsLoading(false);
         } catch (error) {
             console.error("Error loading posts", error);
+        } finally {
             setIsLoading(false);
         }
     }
 
     function handlePostUpdated(updatedPost: Post) {
+        console.log("updatedPost:", updatedPost);
         setPosts(prevPosts =>
             prevPosts.map(post => (post._id === updatedPost._id ? updatedPost : post))
         );
+        setEditingPost(null); // Ensure editingPost is reset
     }
 
     async function handleDelete(postId: string) {

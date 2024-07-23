@@ -1,6 +1,7 @@
 import React from 'react';
 import { Post } from '../types/Post';
 import { utilService } from '../services/util.service';
+import { postService } from '../services/post.service';
 
 interface MyPostsPreviewProps {
     post: Post;
@@ -11,7 +12,7 @@ interface MyPostsPreviewProps {
 function MyPostsPreview({ post, onEdit, onDelete }: MyPostsPreviewProps) {
     return (
         <div className="post-card">
-            <img src={post.image} alt={post.title} className="mypost-image" />
+            <img src={postService.getImageUrl(post.image)} alt={post.title} className="mypost-image" />
             <div className="post-content">
                 <h2>{post.title}</h2>
                 <p>{post.description}</p>
