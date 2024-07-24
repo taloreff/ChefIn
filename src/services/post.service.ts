@@ -50,25 +50,26 @@ async function save(post: Post): Promise<Post> {
   formData.append('image', post.image);
 
   for (const [key, value] of formData.entries()) {
-    console.log(`${key}: ${value}`);
+      console.log(`${key}: ${value}`);
   }
 
   if (post._id) {
-    console.log('updating post:', post);
-    return httpService.put(`${BASE_URL}${post._id}`, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+      console.log('updating post:', post);
+      return httpService.put(`${BASE_URL}${post._id}`, formData, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          },
+      });
   } else {
-    console.log('creating post:', post);
-    return httpService.post(BASE_URL, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+      console.log('creating post:', post);
+      return httpService.post(BASE_URL, formData, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          },
+      });
   }
 }
+
 
 
 
@@ -78,7 +79,7 @@ async function addReview(postId: string, review: Review): Promise<Post> {
 }
 
 function getImageUrl(image: string | File | undefined) : string {
-  return image ? `http://localhost:5000/uploads/${image}` : '';
+  return image ? `http://localhost:80/uploads/${image}` : '';
 }
 
 function filterPostsByCuisine(posts: Post[], cuisine: string): Post[] {

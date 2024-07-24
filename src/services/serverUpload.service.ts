@@ -3,7 +3,9 @@ export const serverUploadService = {
   };
   
   async function uploadImg(ev: React.ChangeEvent<HTMLInputElement>) {
-    const UPLOAD_URL = 'http://localhost:5000/api/post'; // Adjust the URL to match your backend
+    const UPLOAD_URL = process.env.NODE_ENV === 'production'
+  ? '/api/post'
+  : 'http://localhost:80/api/post'; 
   
     try {
         console.log("11111")

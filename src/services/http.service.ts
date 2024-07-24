@@ -3,7 +3,7 @@ import { authService } from './auth.service';
 
 const BASE_URL = process.env.NODE_ENV === 'production'
   ? '/api/'
-  : '//localhost:5000/api/';
+  : '//localhost:80/api/';
 
 const axios: AxiosInstance = Axios.create({
   baseURL: BASE_URL,
@@ -95,7 +95,7 @@ export const httpService = {
 
 async function ajax(endpoint: string, method: string = 'GET', data: any = null, headers: any = {}): Promise<any> {
   try {
-    console.log("TRYING TO UPDATE!!", endpoint, method, data);
+    console.log("ajax request", endpoint, method, data);
     const res = await axios({
       url: endpoint,
       method,
