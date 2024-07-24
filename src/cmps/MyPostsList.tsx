@@ -1,6 +1,7 @@
 import MyPostsPreview from '../cmps/MyPostsPreview';
 import { Post } from '../types/Post';
 import { Spinner } from './Spinner';
+import { FaRegSadTear } from 'react-icons/fa';
 
 interface MyPostsListProps {
     posts: Post[];
@@ -17,7 +18,11 @@ function MyPostsList({ posts, isLoading, onEdit, onDelete }: MyPostsListProps) {
                 {isLoading ? (
                     <Spinner />
                 ) : posts.length === 0 ? (
-                    <p>No posts to display</p>
+                    <div className="no-posts">
+                        <FaRegSadTear size={50} />
+                        <p>No posts to display</p>
+                        <p>It looks like you haven't created any posts yet.</p>
+                    </div>
                 ) : (
                     posts.map(post => (
                         <MyPostsPreview

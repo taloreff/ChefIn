@@ -74,13 +74,6 @@ export function LoginSignup() {
                     <form className='login-form' onSubmit={handleLogin}>
                         <input type='text' placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <div className='form-options'>
-                            <label>
-                                <input type='checkbox' />
-                                Remember me
-                            </label>
-                            <a href="#" className='forgot-password'>Forgot password?</a>
-                        </div>
                         <button type='submit' className='signin-button'>Sign in</button>
                     </form>
                     <div className="google-container">

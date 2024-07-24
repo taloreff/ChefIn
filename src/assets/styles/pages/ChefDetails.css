@@ -369,6 +369,15 @@ progress {
     color: #999;
 }
 
+.offers-grid .offer {
+    display: flex;
+    align-items: center;
+
+    &>* {
+        margin-right: 4px;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section {

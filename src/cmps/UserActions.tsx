@@ -68,7 +68,7 @@ export function UserActions() {
             />
             <img
                 className="user-icon"
-                src={loggedinUser ? postService.getImageUrl(loggedinUser.profileImgUrl) : userIcon}
+                src={loggedinUser.profileImgUrl ? postService.getImageUrl(loggedinUser.profileImgUrl) : userIcon}
                 alt="user-icon"
             />
             <div

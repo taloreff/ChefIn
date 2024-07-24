@@ -19,6 +19,7 @@
             color: #fff;
             background-color: #cbcbcbd2;
             border-radius: 14px;
+            min-width: 328px;
             transition: transform 0.3s ease;
 
             &:hover {
@@ -39,10 +40,11 @@
                     width: 40%;
 
                     .profile-pic {
-                        width: 50px;
+                        min-width: 50px;
                         height: 50px;
                         border-radius: 50%;
                         margin-right: 16px;
+                        object-fit: cover;
                     }
 
 
